@@ -1,9 +1,11 @@
 import './App.css';
+import LoginProvider from './logoutCall';
 
 function App() {
   return (
-    <div>
-    </div>
+    <LoginProvider>
+    
+   </LoginProvider>
   );
 }
 
