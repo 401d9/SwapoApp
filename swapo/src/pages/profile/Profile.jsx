@@ -1,5 +1,5 @@
 import "./profile.css";
-import Topbar from "../../components/topbar/Topbar";
+import Header from "../../components/header/Header";
 import Feed from "../../components/feed/Feed";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
@@ -22,7 +22,7 @@ export default function Profile() {
 
   return (
     <>
-      <Topbar />
+      <Header />
       <div className="profile">
         <div className="profileRight">
           <div className="profileRightTop">

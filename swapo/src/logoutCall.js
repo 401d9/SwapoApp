@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 export const LogoutContext = React.createContext();
 function LogoutProvider(props){
-  
+  const [logoutState,setLogoutState] = useState({});
  const logout = () => {
      console.log('loggedOut');
-    setLoginState(false, null, {});
+    setLogoutState(false, null, {});
   };
 
 const state = {logout};

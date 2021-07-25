@@ -1,5 +1,5 @@
-import "./profile.css";
-import Topbar from "../../components/topbar/Topbar";
+import "./setting.css";
+import Header from "../../components/header/Header";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
@@ -18,7 +18,7 @@ export default function Setting() {
 
   return (
     <>
-      <Topbar />
+      <Header />
       <div className="profile">
         <div className="profileRight">
           <div className="profileRightTop">
