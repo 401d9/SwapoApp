@@ -18,6 +18,7 @@ export default function Register() {
       const user = {
         username: username.current.value,
         password: password.current.value,
+        email: email.current.value,
       };
       try {
         await axios.post("/signup", user);
