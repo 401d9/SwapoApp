@@ -1,4 +1,4 @@
-import "./conversation.css";
+import "./converstaions.css";
 
 export default function Conversation() {
   return (
