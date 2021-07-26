@@ -8,12 +8,11 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-export default function Share(newPost) {
+export default function Share() {
 
   const { user } = useContext(AuthContext);
   const desc = useRef();
   const [file, setFile] = useState(null);
-  const history = useHistory();
 
 
   const submitHandler = async (e) => {
@@ -51,7 +50,7 @@ export default function Share(newPost) {
             alt=""
           />
           <input
-            placeholder={"What's in your mind " + user.username + "?"}
+            placeholder={"Welcome " + user.username + " 😊 , what do you want to swap 🔄 today?"}
             className="shareInput"
             ref={desc}
           />
