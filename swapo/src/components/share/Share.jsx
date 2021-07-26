@@ -1,5 +1,5 @@
 import "./share.css";
-import { Button ,Form} from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import {
   PermMedia,
   Cancel,
@@ -28,106 +28,105 @@ export default function Share() {
       console.log(newPost);
       try {
         await axios.post("/posts/upload", data);
-      } catch (err) {}
+      } catch (err) { }
     }
     try {
       await axios.post("/posts/upload", newPost);
       window.location.reload();
-    } catch (err) {console.log(err);}
+    } catch (err) { console.log(err); }
   };
 
   return (
 
-    
+
     <div className="share">
-{/* 
-<form  className="shareBottom" onSubmit={submitHandler} id="contactus_form" class="contact-form" action="/contactUs" method="POST">               
-  <img
-    className="shareProfileImg"
-    src={
-      user.profilePicture
-    }
-    alt=""
-  />
-            <div class="form__group field">
-                <textarea name="message"class="form__field" cols="30" rows="3" autocomplete="off"
-                required></textarea>
-             
-                <label for="message"    className="shareInput"
-    ref={desc} class="form__label">{"Hi " + user.username + ", what do you want to provide?"}</label>
-            </div>
-              
-          
-{file && (
-    <div className="shareImgContainer">
-      <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
-      <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
-    </div>
-  )}
+
+      <form className="shareBottom" onSubmit={submitHandler} id="contactus_form" class="contact-form" action="/contactUs" method="POST">
+        {/* <img
+          className="shareProfileImg"
+          src={
+            user.profilePicture
+          }
+          alt=""
+        /> */}
+        <div class="form__group field">
+          <textarea ref={desc} name="message" class="form__field" cols="30" rows="5" autocomplete="off"
+            required></textarea>
+
+          <label for="message" className="shareInput"
+            class="form__label">{"Hi " + user.username + ", what do you want to provide?"}</label>
+        </div>
+
+
+        {file && (
+          <div className="shareImgContainer">
+            <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
+            <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
+          </div>
+        )}
         <div className="shareOptions">
-    <label htmlFor="file" className="shareOption">
+          <label htmlFor="file" className="shareOption">
+
+            <input
+              style={{ display: "none" }}
+              type="file"
+              id="file"
+              accept=".png,.jpeg,.jpg"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-ghost">POST</button>
+      </form>
     
-      <input
-        style={{ display: "none" }}
-        type="file"
-        id="file"
-        accept=".png,.jpeg,.jpg"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
-    </label>
-  </div>
-            <button type="submit" class="btn btn-primary btn-ghost">Post</button>
+
+     {/* 
+
+      <div className="shareWrapper">
+        <div className="shareTop">
+          <img
+            className="shareProfileImg"
+            src={
+              user.profilePicture
+            }
+            alt=""
+          />
+          <input
+            placeholder={"Hi " + user.username + ", what do you want to provide?"}
+            className="shareInput"
+            ref={desc}
+          />
+        </div>
+        <hr className="shareHr" />
+        {file && (
+          <div className="shareImgContainer">
+            <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
+            <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
+          </div>
+        )}
+        <form className="shareBottom" onSubmit={submitHandler}>
+          <div className="shareOptions">
+            <label htmlFor="file" className="shareOption">
+
+              <input
+                style={{ display: "none" }}
+                type="file"
+                id="file"
+                accept=".png,.jpeg,.jpg"
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+            </label>
+          </div>
+
+          < Button className="shareButton" type="submit">
+            Post
+          </ Button>
         </form>
-
-
-      */}
-
-
-<div className="shareWrapper">
-<div className="shareTop">
-  <img
-    className="shareProfileImg"
-    src={
-      user.profilePicture
-    }
-    alt=""
-  />
-  <input
-    placeholder={"Hi " + user.username + ", what do you want to provide?"}
-    className="shareInput"
-    ref={desc}
-  />
-</div>
-<hr className="shareHr" />
-{file && (
-  <div className="shareImgContainer">
-    <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
-    <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
-  </div>
-)}
-<form className="shareBottom" onSubmit={submitHandler}>
-  <div className="shareOptions">
-    <label htmlFor="file" className="shareOption">
-    
-      <input
-        style={{ display: "none" }}
-        type="file"
-        id="file"
-        accept=".png,.jpeg,.jpg"
-        onChange={(e) => setFile(e.target.files[0])}
-      />
-    </label>
-  </div>
-  
-  < Button className="shareButton" type="submit">
-    Post
-  </ Button>
-</form>
-</div>
+      </div>
 
 
 
-
+ */}
 
 
 
@@ -135,5 +134,6 @@ export default function Share() {
 
 
     </div>
-  );}
+  );
+}
 

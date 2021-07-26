@@ -155,6 +155,12 @@ html {
   font-size: 26px;
   font-weight: 300;
   margin-bottom: 12px;
+
+  font-size:35;
+  font-weight: 500;
+  /* text-align: center; */
+  text-shadow: rgba(0,0,0,0.55) 1px 1px 5px
+
 }
 
 .tag {
@@ -164,6 +170,7 @@ html {
   margin-right: 8px;
   padding: 4px 10px;
   text-transform: uppercase;
+  text-shadow: rgba(0,0,0,0.55) 1px 1px 5px
 }
 
 .stats {
@@ -175,6 +182,7 @@ html {
   font-size: 12px;
   margin-right: 20px;
   text-transform: uppercase;
+  text-shadow: rgba(0,0,0,0.55) 1px 1px 5px
 }
 
 .stat-number {
@@ -232,6 +240,7 @@ html {
   position: relative;
   text-transform: uppercase;
   width:50%;
+  text-shadow: rgba(0,0,0,0.55) 1px 1px 5px
 }
 
 .body-stats > span {
@@ -292,9 +301,9 @@ html {
 .card-list {
   list-style-type: none;
   margin: 10px 0 0;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   padding: 0;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .card-list::-webkit-scrollbar-track
