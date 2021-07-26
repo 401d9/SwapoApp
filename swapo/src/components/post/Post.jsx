@@ -32,7 +32,7 @@ export default function Post({ post }) {
     fetchUser();
   }, [post.userId, editState]);
 
-  const likeHandler = () => {
+  const interestedHandler = () => {
     try {
       axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
     } catch (err) {}
@@ -76,18 +76,13 @@ export default function Post({ post }) {
     console.log("setEditState(false);00");
     axios
       .put("/posts/" + post._id, { newDesc: desc.current.value })
-      .then(() => {
-      });
-      setEditState(false);
+      .then(() => {});
+    setEditState(false);
   };
   const handleDelete = () => {
     setAnchorEl(null);
-    axios
-      .delete("/posts/" + post._id)
-      .then(() => {
-      });
+    axios.delete("/posts/" + post._id).then(() => {});
   };
-//to={`/profile/${user.username}`}
   return (
     <div className="post">
       <div className="postWrapper">
@@ -103,36 +98,38 @@ export default function Post({ post }) {
             <span className="postUsername">{user.username}</span>
             <span className="postDate">{format(post.createdAt)}</span>
           </div>
-          <div className="postTopRight">
-            <IconButton
-              aria-label="more"
-              aria-controls="long-menu"
-              aria-haspopup="true"
-              onClick={handleClick}
-            >
-              <MoreVertIcon />
-            </IconButton>
-            <Menu
-              id="long-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={open}
-              onClose={handleClose}
-              PaperProps={{
-                style: {
-                  maxHeight: ITEM_HEIGHT * 4.5,
-                  width: "20ch",
-                },
-              }}
-            >
-              <MenuItem key="edit" onClick={() => handleEdit(post._id)}>
-                Edit
-              </MenuItem>
-              <MenuItem key="delete" onClick={() => handleDelete(post._id)}>
-                Delete
-              </MenuItem>
-            </Menu>
-          </div>
+          {currentUser._id === post.userId && (
+            <div className="postTopRight">
+              <IconButton
+                aria-label="more"
+                aria-controls="long-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+              >
+                <MoreVertIcon />
+              </IconButton>
+              <Menu
+                id="long-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={open}
+                onClose={handleClose}
+                PaperProps={{
+                  style: {
+                    maxHeight: ITEM_HEIGHT * 4.5,
+                    width: "20ch",
+                  },
+                }}
+              >
+                <MenuItem key="edit" onClick={() => handleEdit(post._id)}>
+                  Edit
+                </MenuItem>
+                <MenuItem key="delete" onClick={() => handleDelete(post._id)}>
+                  Delete
+                </MenuItem>
+              </Menu>
+            </div>
+          )}
         </div>
         <div className="postCenter">
           <span className="postText">{post?.desc}</span>
@@ -149,25 +146,21 @@ export default function Post({ post }) {
           <img className="postImg" src={post.img} alt="" />
         </div>
         <div className="postBottom">
-          {/*           <div className="postBottomLeft">
+          <div className="postBottomLeft">
             <img
               className="likeIcon"
-              src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Font_Awesome_5_regular_arrow-circle-up_blue.svg/1024px-Font_Awesome_5_regular_arrow-circle-up_blue.svg.png'
-              onClick={likeHandler}
+              src="https://www.pinclipart.com/picdir/big/54-548007_interested-in-getting-involved-with-the-pto-raise.png"
+              onClick={interestedHandler}
               alt=""
             />
-            <img
-              className="likeIcon"
-              src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Circle_arrow_down_font_awesome.svg/1200px-Circle_arrow_down_font_awesome.svg.png'
-              onClick={likeHandler}
-              alt=""
-            />
-            <span className="postLikeCounter">{like} people like it</span>
-          </div> */}
+            <span className="postLikeCounter">{like} people interested in it </span>
+          </div>
           <div className="postBottomRight">
-            <button className="postCommentText" onClick={handleContact}>
-              Contact
-            </button>
+            {currentUser._id !== post.userId && (
+              <button className="postCommentText" onClick={handleContact}>
+                Contact
+              </button>
+            )}
           </div>
         </div>
       </div>

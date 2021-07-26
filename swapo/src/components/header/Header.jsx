@@ -35,8 +35,8 @@ export default function Topbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    history.replace('/login');
-  }
+    history.replace("/login");
+  };
 
   useEffect(() => {
     const getNotif = async () => {
@@ -77,7 +77,7 @@ export default function Topbar() {
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
-            <Chat onClick={handleClick}>Open Menu</Chat>
+            <Chat onClick={handleClick}></Chat>
             <Menu
               id="simple-menu"
               anchorEl={anchorEl}
@@ -85,14 +85,20 @@ export default function Topbar() {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              {notif.map((items, idx) => (
-                <MenuItem key={idx} onClick={() => handleChat(idx)}>
-                  {items}{" "}
-                  <Link to={'/messenger'}>
-                    <button>Go</button>
-                  </Link>
+              {notif.length ? (
+                notif.map((items, idx) => (
+                  <MenuItem key={idx} onClick={() => handleChat(idx)}>
+                    {items}
+                    <Link to={"/messenger"}>
+                      <button>Go</button>
+                    </Link>
+                  </MenuItem>
+                ))
+              ) : (
+                <MenuItem onClick={handleClose}>
+                  We are sorry 🥺, there isn't any new notifications 😢
                 </MenuItem>
-              ))}
+              )}
             </Menu>
             <span className="topbarIconBadge">{notif.length}</span>
           </div>
