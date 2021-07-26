@@ -3,11 +3,14 @@ import "./login.css";
 import { loginCall } from "../../loginCall";
 import { AuthContext } from "../../context/AuthContext";
 import { CircularProgress } from "@material-ui/core";
+import { useHistory } from "react-router";
+
 
 export default function Login() {
   const username = useRef();
   const password = useRef();
   const { isFetching, dispatch } = useContext(AuthContext);
+  const history = useHistory();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -15,7 +18,13 @@ export default function Login() {
       { username: username.current.value, password: password.current.value },
       dispatch
     );
+    history.push('/home');
   };
+
+  const handleCreate = (e) => {
+    e.preventDefault();
+    history.push('/register');
+  }
 
   return (
     <div className="login">
@@ -50,7 +59,7 @@ export default function Login() {
                 "Log In"
               )}
             </button>
-            <button className="loginRegisterButton">
+            <button onClick={handleCreate} className="loginRegisterButton">
               {isFetching ? (
                 <CircularProgress color="white" size="20px" />
               ) : (
