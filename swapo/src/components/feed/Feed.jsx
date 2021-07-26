@@ -8,6 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 export default function Feed({ username }) {
   console.log('username_Fees', username);
   const [posts, setPosts] = useState([]);
+  const [newPost, setNewPost] = useState(true);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {

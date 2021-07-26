@@ -6,12 +6,16 @@ import {
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import { useHistory } from "react-router";
 
-export default function Share() {
+export default function Share(newPost) {
+
   const { user } = useContext(AuthContext);
   const desc = useRef();
   const [file, setFile] = useState(null);
-  console.log('user_Share', user);
+  const history = useHistory();
+
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const newPost = {
@@ -31,7 +35,7 @@ export default function Share() {
     }
     try {
       await axios.post("/posts/upload", newPost);
-      window.location.reload();
+      console.log('new Pst');
     } catch (err) {console.log(err);}
   };
 
