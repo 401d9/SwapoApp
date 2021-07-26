@@ -87,7 +87,7 @@ export default function Post({ post }) {
       .then(() => {
       });
   };
-
+//to={`/profile/${user.username}`}
   return (
     <div className="post">
       <div className="postWrapper">
