@@ -207,16 +207,20 @@ html {
   padding: 0 15px 15px;
   position: relative;
 }
+/* .profile-pic{
 
+} */
 .body-image {
-  width: 20%;
-  height: 20%;
-  border-radius: 100%;
+  width: 150px;
+  height:150px;
+  border-radius: 50%;
   box-shadow: 5px 10px 75px rgba(0, 0, 0, .4);
   float: left;
   margin: -90px 0 20px;
   position: relative;
   z-index: 2;
+ 
+ 
 }
 
 .body-action-button {

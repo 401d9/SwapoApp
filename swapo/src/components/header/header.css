@@ -100,3 +100,42 @@
       display: none;
     }
   }
+
+
+
+
+
+
+
+
+
+/* 
+
+  .topbarContainer{
+    padding: 0 1%;
+    background-color: #006E89;
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  }
+  .logofromHeader{
+    width: 114px;
+    height: 37px;
+    padding: 3% 0px;
+  }
+  .topbarImg{
+    width: 30px;
+    height: 29px;
+    border-radius: 50%;
+    margin-top: 1%;
+  }
+  .midPartHeader{
+
+    padding-top: 1%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .rightPartHeader{
+    padding-top: 4%;
+  
+  }
+ */

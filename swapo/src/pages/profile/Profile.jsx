@@ -28,6 +28,7 @@ export default function Profile() {
 
       <div class="container">
   <div class="header-container">
+   
     <img src={
                   user.profileCover
                 } alt="" class="header-image" />
@@ -57,9 +58,11 @@ export default function Profile() {
   <div class="overlay-header"></div>
   
   <div class="body">
-    <img src={ user.profilePicture }alt={user.name} class="body-image" />
 
-    <span class="body-stats"> Nour Abu El-Enein{user.name}</span>
+  <div className="profile-pic"> <img src={ user.profilePicture }alt={user.name} class="body-image" /></div>
+   
+
+    <span class="body-stats">{user.name}</span>
    
     <div class="u-clearfix"></div>
     <div class="body-info">
