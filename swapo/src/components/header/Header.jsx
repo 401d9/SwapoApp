@@ -7,12 +7,14 @@ import { AuthContext } from "../../context/AuthContext";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [notif, setNotif] = React.useState([]);
   const [numOfNotif, setNumOfNotif] = React.useState(0);
+  const history = useHistory();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -30,6 +32,11 @@ export default function Topbar() {
     };
     const res = await axios.put("/notif", objOfUser);
   };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    history.replace('/login');
+  }
 
   useEffect(() => {
     const getNotif = async () => {
@@ -61,6 +68,12 @@ export default function Topbar() {
           <Link className="topbarLink" to="/setting">
             Setting
           </Link>
+          <Link className="topbarLink" to="/messenger">
+            messenger
+          </Link>
+          <Link className="topbarLink" to="/login">
+            login
+          </Link>
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
@@ -87,6 +100,7 @@ export default function Topbar() {
         <Link to={`/profile/${user.username}`}>
           <img src={user.profilePicture} alt="" className="topbarImg" />
         </Link>
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import "./setting.css";
 import Header from "../../components/header/Header";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
+import { useRef } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Setting() {
@@ -15,6 +16,36 @@ export default function Setting() {
     };
     fetchUser();
   }, [user.username]);
+
+  const name = useRef();
+  const email = useRef();
+  const service = useRef();
+  const descriptionOfUser = useRef();
+  const experience = useRef();
+  const profilePicture = useRef();
+  const profileCover = useRef();
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+      const userObj = {
+        name: name.current.value,
+        email: email.current.value,
+        service: service.current.value,
+        descriptionOfUser: descriptionOfUser.current.value,
+        experience: experience.current.value,
+        profilePicture: profilePicture.current.value,
+        profileCover: profileCover.current.value,
+      };
+      const config = {
+        headers: { Authorization: `Bearer ${user.token}` }
+    };
+      try {
+        const res = await axios.put("/profile", userObj,config);
+        console.log('res from setting',res);
+      } catch (err) {
+        console.log(err);
+      }
+    }
 
   return (
     <>
@@ -44,45 +75,60 @@ export default function Setting() {
           </div>
         </div>
       </div>
-      <form className="loginBox">
+      <form className="loginBox" onSubmit={handleClick}>
             <input
-              placeholder="Name"
+              placeholder="name"
               value={user.name}
+              ref={name}
               className="loginInput"
-              type="text"
+            />
+            <input
+              placeholder="Email"
+        
+              ref={email}
+              className="loginInput"
+              type="email"
             />
             <input
               placeholder="service"
-              value={user.service}
+        
+              ref={service}
               className="loginInput"
               type="text"
+              minLength="6"
             />
-                        <input
-              placeholder="Experience"
-              value={user.experience}
+            <input
+              placeholder="description"
+        
+              ref={descriptionOfUser}
               className="loginInput"
               type="text"
             />
             <input
-              placeholder="Description Of User"
-              value={user.descriptionOfUser}
+              placeholder="experience"
+        
+              ref={experience}
               className="loginInput"
               type="text"
             />
-                        <input
-              placeholder="Profile Picture"
+             <input
+              placeholder="profilePicture"
+              
+              ref={profilePicture}
               className="loginInput"
-              type="file"
+              type="text"
             />
-            <input
-              placeholder="Profile Cover"
+             <input
+              placeholder="profileCover"
+              
+              ref={profileCover}
               className="loginInput"
-              type="file"
+              type="text"
             />
             <button className="loginButton" type="submit">
-              Update
+              Update Profile
             </button>
-          </form>        
+          </form> 
     </>
   );
 }
