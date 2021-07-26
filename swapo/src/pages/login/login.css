@@ -563,28 +563,49 @@ a {
   text-align: center;
 } */
 
+@import url("https://fonts.googleapis.com/css?family=Poppins:400");
+@import url("https://fonts.googleapis.com/css2?family=Noticia+Text:wght@700&family=Orelega+One&family=Prata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noticia+Text&family=Orelega+One&family=Prata&display=swap");
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+} /*16px*/
+
 body {
   color: #000;
   overflow-x: hidden;
   height: 100%;
-  background-color: #b0bec5;
   background-repeat: no-repeat;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
 }
-
+.container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto {
+  height: 300%;
+  width: 200%;
+}
 .card0 {
   box-shadow: 0px 4px 8px 0px #757575;
   border-radius: 0px;
 }
+.card {
+}
 
 .card2 {
   margin: 0px 40px;
+}
+.card1 .pb-5 {
+}
+.card .card0 .border-0 {
+}
+.container-fluid {
 }
 
 .logo {
   width: 150px;
   /* height: 100px; */
   margin-top: 20px;
-  margin-left: 310px;
+  /* margin-left: 310px; */
   text-align: center;
 }
 
@@ -601,7 +622,7 @@ body {
   background-color: #3b5998;
   color: #fff;
   font-size: 18px;
-  padding-top: 5px;
+  padding-top: 4px;
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -609,10 +630,10 @@ body {
 }
 
 .twitter {
-  background-color: #1da1f2;
+  background-color: #db4437;
   color: #fff;
   font-size: 18px;
-  padding-top: 5px;
+  padding-top: 3px;
   border-radius: 50%;
   width: 35px;
   height: 35px;
@@ -698,20 +719,20 @@ a {
 }
 
 .btn-blue {
-  background-color: #1a237e;
+  background-color: #ffa34c;
   width: 150px;
   color: #fff;
   border-radius: 2px;
 }
 
 .btn-blue:hover {
-  background-color: #000;
+  background-color: #ffa34c;
   cursor: pointer;
 }
 
 .bg-blue {
   color: #fff;
-  background-color: #1a237e;
+  background-color: #ffa34c;
 }
 
 @media screen and (max-width: 991px) {
@@ -732,4 +753,19 @@ a {
     border-top: 1px solid #eeeeee !important;
     margin: 0px 15px;
   }
+}
+.btn btn-blue text-center {
+  background-color: #ffa34c;
+}
+.mt-2,
+.my-2 {
+  font-weight: bold;
+  font-size: 14px;
+}
+.logoLogin {
+  margin-left: 310px;
+  width: 150px;
+  /* height: 100px; */
+  margin-top: 20px;
+  /* margin-left: 310px; */
 }
