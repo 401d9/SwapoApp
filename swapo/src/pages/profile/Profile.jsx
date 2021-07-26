@@ -6,19 +6,22 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 
+
+
 export default function Profile() {
-  const { user } = useContext(AuthContext);
-  const [user2, setUser] = useState({});
-  //const username = useParams().username;
-  //console.log('profile', useParams().userName);
+
+  const [user, setUser] = useState({});
+  const username = useParams().username;
+
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/user/profile/${user.username}`);
-      setUser(res.data);
+      const res = await axios.get(`/user/profile/${username}`);
+      setUser(res.data[0]);
+      console.log('profile/line21', res);
     };
     fetchUser();
-  }, [user.username]);
+  }, [username]);
 
   return (
     <>

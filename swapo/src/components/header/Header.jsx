@@ -62,7 +62,7 @@ export default function Topbar() {
           <Link className="topbarLink" to="/home">
             Homepage
           </Link>
-          <Link className="topbarLink" to="/profile">
+          <Link className="topbarLink" to={`/profile/${user.username}`}>
             Profile
           </Link>
           <Link className="topbarLink" to="/setting">
