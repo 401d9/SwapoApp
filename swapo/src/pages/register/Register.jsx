@@ -18,6 +18,7 @@ export default function Register() {
       const user = {
         username: username.current.value,
         password: password.current.value,
+        email: email.current.value,
       };
       try {
         await axios.post("/signup", user);
@@ -28,6 +29,11 @@ export default function Register() {
       }
     }
   };
+
+  const handleIntoAccount = (e) => {
+    e.preventDefault();
+    history.push('/login');
+  }
 
   return (
     <div className="login">
@@ -71,7 +77,7 @@ export default function Register() {
             <button className="loginButton" type="submit">
               Sign Up
             </button>
-            <button className="loginRegisterButton">Log into Account</button>
+            <button onClick={handleIntoAccount} className="loginRegisterButton">Log into Account</button>
           </form>
         </div>
       </div>

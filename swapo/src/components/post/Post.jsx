@@ -5,12 +5,14 @@ import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { useHistory } from "react-router";
 
 export default function Post({ post }) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
   const { user: currentUser } = useContext(AuthContext);
+  const history = useHistory();
 
   useEffect(() => {
     setIsLiked(post.likes.includes(currentUser._id));
@@ -32,6 +34,23 @@ export default function Post({ post }) {
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
+  console.log('Post ->> user', user);
+
+ const handleContact = () =>{
+  const addConversations = async () => {
+    try {
+      const members = {senderId:currentUser._id, receiverId:user._id};
+      console.log('members', members);
+      const res = await axios.post("/conversations", members);
+      console.log('Messenger, res', res );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  addConversations();
+  history.push("/messenger");
+ }
+
 
   return (
     <div className="post">
@@ -75,7 +94,7 @@ export default function Post({ post }) {
             <span className="postLikeCounter">{like} people like it</span>
           </div> */}
           <div className="postBottomRight">
-            <span className="postCommentText">Contact</span>
+            <button className="postCommentText" onClick={handleContact}>Contact</button>
           </div>
         </div>
       </div>

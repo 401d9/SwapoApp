@@ -9,6 +9,7 @@ export const loginCall = async (userCredential, dispatch) => {
         username: userCredential.username,
         password: userCredential.password,
       }})
+      console.log('line 12 from loginCall',res.data);
     dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
   } catch (err) {
     console.log('error');

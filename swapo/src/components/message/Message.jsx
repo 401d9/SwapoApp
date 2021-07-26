@@ -1,26 +1,39 @@
 import "./message.css";
+import { format } from "timeago.js";
+import  axios  from 'axios';
+import { useState, useEffect } from 'react';
 
-export default function Message({ own }) {
+export default function Message({ message, own, currentUser, sender }) {
+  console.log('sender', sender);
+
+  const [user, setUser] = useState(null);
+
+  
+  useEffect(() => {
+    console.log('useEffect');
+      const getUser = async () => {
+      try {
+        const res = await axios(`/users/${sender}`);
+        console.log('res.data', res.data);
+        setUser(res.data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    getUser();
+  }, [currentUser, sender]);
+  console.log('user, currUser', user, currentUser);
   return (
     <div className={own ? "message own" : "message"}>
       <div className="messageTop">
         <img
           className="messageImg"
-          src={
-            own
-              ? "https://pbs.twimg.com/media/E4qO_7dWQAMwc57.jpg"
-              : "https://otakukart.com/wp-content/uploads/2020/12/Luffy-1200x900.jpg"
-          }
+          src={own ? currentUser.profilePicture : user?.profilePicture}
           alt=""
         />
-        <p className="messageText">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-          minima consequatur provident est id, culpa saepe accusantium voluptate
-          hic impedit sequi facilis, vero iste quo eligendi repudiandae nostrum
-          illum officiis!
-        </p>
+        <p className="messageText">{message.text}</p>
       </div>
-      <div className="messageBottom">1 Hour ago</div>
+      <div className="messageBottom">{format(message.createdAt)}</div>
     </div>
   );
 }
