@@ -1,6 +1,7 @@
 import "./messenger.css";
 import Conversation from "../../components/converstaions/Converstaions";
 import Message from "../../components/message/Message";
+import Footer from "../../components/footer/Footer"
 // import ChatOnline from "../../components/chatOnline/ChatOnline";
 import Header from "../../components/header/Header";
 /****************************************************************************** */
@@ -163,7 +164,7 @@ export default function Messenger() {
       </div> 
 
 
-
+     <Footer/>
     </>
   );
 }

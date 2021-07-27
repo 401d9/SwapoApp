@@ -1,4 +1,49 @@
-.profile{
+
+.profileImgSetting{
+    width: 80px;
+    height: 80px;
+}
+.coverImgSetting{
+    width:200px;
+    height: 150px;
+}
+.settingCardContainer{
+    padding: 2%;
+    background-color: #F9F9F9;
+    border-radius: 0.5%;
+    box-shadow: 0 0 50px rgba(0,0,0,.3);
+    margin: 2% 15%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #FFFFFF;
+}
+.firstSettingCard{    
+    border-right: 0.5px solid #ddd;
+}
+.firstSettingCard h5, .firstSettingCard h4{
+ color:#006E89;
+}
+.leftSecSettingCard h5{
+ color:#006E89;
+}
+.rightSecSettingCard h5{
+ color:#006E89;
+}
+.firstSettingCard h6{
+ color:#32cbf1;
+}
+.leftSecSettingCard h6{
+ color:#32cbf1;
+}
+.rightSecSettingCard h6{
+ color:#32cbf1;
+}
+.settingBtn{
+    float: right;
+}
+
+/* .profile{
     display: flex;
 }
 
@@ -47,4 +92,4 @@
 
 .profileRightBottom{
     display: flex;
-}
+} */
