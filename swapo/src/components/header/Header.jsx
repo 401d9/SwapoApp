@@ -22,7 +22,7 @@ export default function Topbar() {
 
   const handleClose = () => {
     setAnchorEl(null);
-    setNumOfNotif(0);
+
   };
 
   const handleChat = async (idx) => {
@@ -31,6 +31,9 @@ export default function Topbar() {
       index: idx,
     };
     const res = await axios.put("/notif", objOfUser);
+    console.log('stat=line34', numOfNotif);
+    setNumOfNotif(-1);
+    console.log('stat=line34', numOfNotif);
   };
 
   const handleLogout = () => {
@@ -49,7 +52,7 @@ export default function Topbar() {
     };
     getNotif();
   }, [user._id]);
-  console.log("user>>>", user);
+  
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">

@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-export default function Share() {
+export default function Share({stateChanger, data}) {
 
   const { user } = useContext(AuthContext);
   const desc = useRef();
@@ -21,6 +21,7 @@ export default function Share() {
       userId: user._id,
       desc: desc.current.value,
     };
+    desc.current.value = '';
     if (file) {
       const data = new FormData();
       const fileName = Date.now() + file.name;
@@ -35,6 +36,7 @@ export default function Share() {
     try {
       await axios.post("/posts/upload", newPost);
       console.log('new Pst');
+      stateChanger(data+1)
     } catch (err) {console.log(err);}
   };
 
