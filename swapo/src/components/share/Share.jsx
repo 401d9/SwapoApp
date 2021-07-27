@@ -50,7 +50,7 @@ export default function Share() {
           alt=""
         /> */}
         <div class="form__group field">
-          <textarea ref={desc} name="message" class="form__field" cols="30" rows="5" autocomplete="off"
+          <textarea ref={desc} name="message" class="form__field" cols="30" rows="4" autocomplete="off"
             required></textarea>
 
           <label for="message" className="shareInput"
@@ -76,7 +76,7 @@ export default function Share() {
             />
           </label>
         </div>
-        <button type="submit" class="btn btn-primary btn-ghost">POST</button>
+        <button type="submit" class="btn-share btn-primary btn-ghost">POST</button>
       </form>
     
 

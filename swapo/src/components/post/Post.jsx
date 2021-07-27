@@ -110,8 +110,6 @@ export default function Post({ post }) {
             <Link className="linkUserName" to={`/profile/${user.username}`}>
               {user.username}
             </Link>
-
-
             <QuestionAnswerOutlinedIcon style={{ cursor: "pointer", color:"#FFA34C" }} onClick={handleContact} />
           </div>
 

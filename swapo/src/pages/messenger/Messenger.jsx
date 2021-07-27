@@ -8,6 +8,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { io } from "socket.io-client";
+import Footer from '../../components/footer/Footer'
 
 
 export default function Messenger() {
@@ -40,20 +41,20 @@ export default function Messenger() {
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage, currentChat]);
 
-   useEffect(() => {
+  useEffect(() => {
     socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", (users) => {
       setOnlineUsers(
         users
       );
     });
-  }, [user]); 
+  }, [user]);
 
   useEffect(() => {
     const getConversations = async () => {
       try {
         const res = await axios.get("/conversations/" + user._id);
-        console.log('Messenger, res',user._id, res );
+        console.log('Messenger, res', user._id, res);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -111,13 +112,13 @@ export default function Messenger() {
     <>
 
 
-< Header/>
+      < Header />
 
       <div className="messenger">
         <div className="chatMenu">
           <div className="chatMenuWrapper">
             <h3>Conversations</h3>
-              {conversations.map((c) => (
+            {conversations.map((c) => (
               <div onClick={() => setCurrentChat(c)}>
                 <Conversation conversation={c} currentUser={user} />
               </div>
@@ -126,7 +127,7 @@ export default function Messenger() {
         </div>
         <div className="chatBox">
           <div className="chatBoxWrapper">
-          {currentChat ? (
+            {currentChat ? (
               <>
                 <div className="chatBoxTop">
                   {messages.map((m) => (
@@ -155,14 +156,14 @@ export default function Messenger() {
           </div>
         </div>
         <div className="chatOnline">
-        <h3>Online Swapers</h3>
+          <h3>Online Swapers</h3>
           <div className="chatOnlineWrapper">
-    
+
           </div>
         </div>
-      </div> 
+      </div>
 
-
+      <Footer />
 
     </>
   );
