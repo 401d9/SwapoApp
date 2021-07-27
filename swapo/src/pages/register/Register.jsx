@@ -3,6 +3,7 @@ import { useRef } from "react";
 import "./register.css";
 import Logo from '../login/logo.png'
 import { Link } from 'react-router-dom';
+import Slider from '../../components/Slider/Slider'
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 // import 'bootstrap-css-only/css/bootstrap.min.css';
 import { useHistory } from "react-router";
@@ -48,7 +49,7 @@ export default function Register() {
             <div className="col-lg-6">
               <div className="card1 pb-5">
                 <div className="row"> <img src={Logo} className="logoLogin" /> </div>
-                <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" className="image" /> </div>
+                <div className="row px-3 justify-content-center mt-4 mb-5 border-line">   <Slider/> </div>
               </div>
             </div>
             <div className="col-lg-6">
