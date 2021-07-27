@@ -110,10 +110,13 @@
 
 *, *:before, *:after {
   box-sizing:border-box;
+
 }
 
 .container-fluid{
-width:100%
+width:100%;
+background-color: #006E89;
+height: 100Vh;
 }
 /* .row-login {
   display: flex;
@@ -281,8 +284,9 @@ width:100%
   font-size: 14px;
 }
 .logoLogin {
-  margin-left: 310px;
-  width: 150px;
+  margin-left: 226px;
+  width: 169px;
+  margin-bottom: 20px;
   /* height: 100px; */
   margin-top: 20px;
   /* margin-left: 310px; */
