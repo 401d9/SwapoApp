@@ -112,7 +112,7 @@ export default function Post({ post }) {
             </Link>
 
 
-            <QuestionAnswerOutlinedIcon style={{ cursor: "pointer" }} onClick={handleContact} />
+            <QuestionAnswerOutlinedIcon style={{ cursor: "pointer", color:"#FFA34C" }} onClick={handleContact} />
           </div>
 
         </div>
