@@ -29,7 +29,7 @@ export default function Profile() {
    
     <img src={
                   user.profileCover
-                } alt="" class="header-image" />
+                } alt="" class="header-pic" />
     <div class="header">
    
       <h1 class="main-heading">@{user.username}</h1>
@@ -91,64 +91,6 @@ export default function Profile() {
   
 </div>
 
-      {/* <div className="profile">
-        <div className="profileRight">
-          <div className="profileRightTop">
-            <div className="profileCover">
-               <img
-                className="profileCoverImg"
-                src={
-                  user.profileCover
-                }
-                alt=""
-              />
-              <img
-                className="profileUserImg"
-                src={
-                  user.profilePicture
-                }
-                alt=""
-              /> 
-            </div>
-          </div>
-        </div>
-
-        <div class="overlay-header"></div>
-
-        <div class="body">
-
-          <div className="profile-pic"> <img src={user.profilePicture} alt={user.name} class="body-image" /></div>
-
-
-          <span class="body-stats">{user.name}</span>
-
-          <div class="u-clearfix"></div>
-          <div class="body-info">
-            <p>
-              description {user.descriptionOfUser}
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem doloremque numquam expedita animi odio facere natus blanditiis delectus, itaque eveniet, laborum, distinctio commodi? Nemo numquam fugiat distinctio excepturi exercitationem reiciendis!
-            </p>
-            <p>
-
-
-            </p>
-          </div>
-
-          <div class="u-clearfix">
-            <span class="card-heading">My posts</span>
-            <span class="card-more">
-              <svg fill="#777777" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
-              </svg>
-            </span>
-            <ul class="card-list">
-              <li>   <Feed username={user.username} /></li>
-
-            </ul>
-          </div>
-        </div> 
-      </div>  */}
        <Footer />
     </>
   );
