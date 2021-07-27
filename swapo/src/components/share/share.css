@@ -3,7 +3,7 @@
   background-size: cover;
 background-repeat: no-repeat;
 background-position: center;
-height:200px;
+height:250px;
  /* padding: 1px; */
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
@@ -36,94 +36,8 @@ height:200px;
     /* margin-right: 10px; */
   }
   
-  /* .shareInput {
-    border: none;
-    width: 80%;
-  } */
-  
-  /* .shareInput:focus {
-    outline: none;
-  } */
-  
-  /* .shareHr {
-    margin: 20px;
-  } */
-  
-  /* .shareBottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  } */
-  
-  /* .shareOptions{
-      display: flex;
-      margin-left: 20px;
-  } */
-  
-  /* .shareOption{
-      display: flex;
-      align-items: center;
-      margin-right: 15px;
-      cursor: pointer;
-  } */
-  
-  /* .shareIcon{
-      font-size: 18px;
-      margin-right: 3px;
-  } */
-  
-  /* .shareOptionText{
-      font-size: 14px;
-      font-weight: 500;
-  }
-   */
-  /* .shareButton{
-      border: none;
-      padding: 7px;
-      border-radius: 5px;
-      background-color:#FFA34C;
-      font-weight: 500;
-      margin-right: 20px;
-      cursor: pointer;
-      color: white;
-  } */
-  
-  /* .shareImgContainer{
-    padding: 0 20px 10px 20px;
-    position: relative;
-  } */
-  
-  /* .shareImg{
-    width: 100%;
-    object-fit: cover;
-  } */
-  
-  /* .shareCancelImg{
-    position: absolute;
-    top: 0;
-    right: 20px;
-    cursor: pointer;
-    opacity: 0.7;
-  }  */
 
-/* 
-  .contactForm1 {
-    width: 100%;
-    padding: 10px;
-  } */
-
-  .contact {
-    /* width: 30%; */
-      /* padding-bottom: 50px; */
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        background-color: #dadada3b;;
-    }
-    .btn {
+    .btn-share {
       font-family: 'Antic Slab', serif;
      
         border-radius: 0;
@@ -134,7 +48,7 @@ height:200px;
         color: #006E89;
     }
     
-    .btn:hover {
+    .btn-share:hover {
         /* background: transparent; */
         box-shadow: 0 0 5px 5px #006E89;
         
@@ -144,25 +58,12 @@ height:200px;
     .form-input-material input {
         color: black;
     }
-    .title{
+ 
 
-        font-size: 20px;
-        margin:0px 0 20px 0px;
-
-        color: #2D3E50;
-        font-weight: bold;
-    }
-
- h2.title{
-        font-size: 20px;
-        padding-top: 30px;
-        /* padding-bottom: 20px; */
-        margin-bottom: 10px;
-    }
     .contact-form  {
       opacity: 0.9;
-     width: 50%;
-      height: 90%;
+     width: 60%;
+      height: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -178,10 +79,10 @@ height:200px;
     .contact-form .form-input-material {
         margin: 12px 0;
     }
-    .contact-form .btn {
+    .contact-form .btn-share {
    
       width: 18%;
-      margin: 7px 0 3px;
+  
       font-size: 16px;
       border-radius: 10px;
     }

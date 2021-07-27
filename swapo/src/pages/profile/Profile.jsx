@@ -24,7 +24,7 @@ export default function Profile() {
     <>
       <Header />
 
-      <div class="container">
+      <div class="container-profile">
   <div class="header-container">
    
     <img src={
@@ -45,7 +45,7 @@ export default function Profile() {
         Rating 
         
         
-        <div  class="rating"><Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly /></div>
+        <div  class="rating"><Rating name="half-rating-read" defaultValue={1.5} precision={0.5} readOnly /></div>
       </Box>
 
         </span>
