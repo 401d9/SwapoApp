@@ -1,6 +1,7 @@
 import "./profile.css";
 import Header from "../../components/header/Header";
 import Feed from "../../components/feed/Feed";
+import Footer from "../../components/footer/Footer";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
@@ -36,7 +37,7 @@ export default function Profile() {
    
       <h1 class="main-heading">@{user.username}</h1>
       <span class="tag">Service : {user.service}</span>
-      <span class="tag">experience :{user.experience}</span>
+      <span class="tag">experience : {user.experience} years</span>
       <div class="stats">
         <span class="stat-module">
           Posts <span class="stat-number">3</span>
@@ -67,8 +68,8 @@ export default function Profile() {
     <div class="u-clearfix"></div>
     <div class="body-info">
       <p>
-      description {user.descriptionOfUser}
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem doloremque numquam expedita animi odio facere natus blanditiis delectus, itaque eveniet, laborum, distinctio commodi? Nemo numquam fugiat distinctio excepturi exercitationem reiciendis!
+      {user.descriptionOfUser}
+    
       </p>
       <p>
      
@@ -77,7 +78,7 @@ export default function Profile() {
     </div>
   
     <div class="card u-clearfix">
-      <span class="card-heading">My posts</span>
+      <span class="card-heading">Start listing services for <span>SWAP!</span></span>
       <span class="card-more">
         <svg fill="#777777" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 0h24v24H0z" fill="none"/>
@@ -122,6 +123,7 @@ export default function Profile() {
           </div>
         </div> 
       </div>  */}
+       <Footer />
     </>
   );
 }
