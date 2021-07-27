@@ -1,26 +1,8 @@
-// import Header from "../../components/header/Header";
-// import Feed from "../../components/feed/Feed";
-// import "./home.css"
-
-// export default function Home() {
-//   return (
-//     <>
-//       <Header />
-//       <div className="homeContainer">
-//         <Feed />
-//       </div>
-//     </>
-//   );
-// }
-
-
-
-
-
 
 
 import Header from "../../components/header/Header";
 import Feed from "../../components/feed/Feed";
+import Footer from "../../components/footer/Footer"
 import "./home.css"
 export default function Home() {
   return (
@@ -34,7 +16,9 @@ export default function Home() {
             <Feed />
           </div>
         </main>
-        <footer></footer>
+        <footer>
+         <Footer/>
+        </footer>
       </container>
     </>
   );
