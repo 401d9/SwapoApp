@@ -1,4 +1,8 @@
-.homeContainer {
-  display: flex;
-  width: 100%;
+.homePageMainTag{
+  /* box-shadow: 0 0 50px rgba(0,0,0,.3); */
+  margin: 2% 15%;
+  /* overflow: hidden; */
+  /* background-color: #f9f9f9; */
+
+
 }
