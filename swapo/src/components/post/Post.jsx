@@ -12,7 +12,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 const ITEM_HEIGHT = 48;
 
-export default function Post({ post }) {
+export default function Post({ post, stateChanger, data}) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
@@ -78,10 +78,12 @@ export default function Post({ post }) {
       .put("/posts/" + post._id, { newDesc: desc.current.value })
       .then(() => {});
     setEditState(false);
+    stateChanger(data+1)
   };
   const handleDelete = () => {
     setAnchorEl(null);
     axios.delete("/posts/" + post._id).then(() => {});
+    stateChanger(data+1)
   };
   return (
     <div className="post">

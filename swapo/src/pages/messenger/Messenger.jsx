@@ -1,6 +1,7 @@
 import "./messenger.css";
 import Conversation from "../../components/converstaions/Converstaions";
 import Message from "../../components/message/Message";
+import Header from '../../components/header/Header'
 // import ChatOnline from "../../components/chatOnline/ChatOnline";
 
 /****************************************************************************** */
@@ -9,9 +10,7 @@ import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-
 export default function Messenger() {
-
   const [conversations, setConversations] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -21,7 +20,6 @@ export default function Messenger() {
   const socket = useRef();
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
-
 
   useEffect(() => {
     socket.current = io("ws://localhost:8900");
@@ -40,20 +38,18 @@ export default function Messenger() {
       setMessages((prev) => [...prev, arrivalMessage]);
   }, [arrivalMessage, currentChat]);
 
-   useEffect(() => {
+  useEffect(() => {
     socket.current.emit("addUser", user._id);
     socket.current.on("getUsers", (users) => {
-      setOnlineUsers(
-        users
-      );
+      setOnlineUsers(users);
     });
-  }, [user]); 
+  }, [user]);
 
   useEffect(() => {
     const getConversations = async () => {
       try {
         const res = await axios.get("/conversations/" + user._id);
-        console.log('Messenger, res',user._id, res );
+        console.log("Messenger, res", user._id, res);
         setConversations(res.data);
       } catch (err) {
         console.log(err);
@@ -91,8 +87,9 @@ export default function Messenger() {
       receiverId,
       text: newMessage,
       conversationId: currentChat._id,
-    });
-
+    }
+    );
+    
     try {
       const res = await axios.post("/messages", message);
       setMessages([...messages, res.data]);
@@ -106,14 +103,20 @@ export default function Messenger() {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  console.log('conversations', conversations, 'profilePicture', user.profilePicture);
+  console.log(
+    "conversations",
+    conversations,
+    "profilePicture",
+    user.profilePicture
+  );
   return (
     <>
+    <Header/>
       <div className="messenger">
         <div className="chatMenu">
           <div className="chatMenuWrapper">
             <h3>Conversations</h3>
-              {conversations.map((c) => (
+            {conversations.map((c) => (
               <div onClick={() => setCurrentChat(c)}>
                 <Conversation conversation={c} currentUser={user} />
               </div>
@@ -122,12 +125,17 @@ export default function Messenger() {
         </div>
         <div className="chatBox">
           <div className="chatBoxWrapper">
-          {currentChat ? (
+            {currentChat ? (
               <>
                 <div className="chatBoxTop">
                   {messages.map((m) => (
                     <div ref={scrollRef}>
-                      <Message message={m} own={m.sender === user._id} currentUser={user} sender={m.sender} />
+                      <Message
+                        message={m}
+                        own={m.sender === user._id}
+                        currentUser={user}
+                        sender={m.sender}
+                      />
                     </div>
                   ))}
                 </div>
@@ -151,10 +159,8 @@ export default function Messenger() {
           </div>
         </div>
         <div className="chatOnline">
-        <h3>Online Swapers</h3>
-          <div className="chatOnlineWrapper">
-            {/* <ChatOnline/> */}
-          </div>
+          <h3>Online Swapers</h3>
+          <div className="chatOnlineWrapper">{/* <ChatOnline/> */}</div>
         </div>
       </div>
     </>
