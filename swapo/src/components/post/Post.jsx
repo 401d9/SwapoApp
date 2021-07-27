@@ -1,18 +1,26 @@
-import "./post.css";
+import "./post.scss";
+import ScrollBars from "react-scrollbar";
 import { useContext, useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useHistory } from "react-router";
-/**************************************** */
+import QuestionAnswerOutlinedIcon from "@material-ui/icons/QuestionAnswerOutlined";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import PlusOneOutlinedIcon from "@material-ui/icons/PlusOneOutlined";
 const ITEM_HEIGHT = 48;
 
-export default function Post({ post, stateChanger, data}) {
+const scrollBarStyle = {
+  height: "107px",
+  width: "633px",
+  margin: "-0.5%",
+};
+
+export default function Post({ post, stateChanger, data }) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
   const [user, setUser] = useState({});
@@ -52,8 +60,6 @@ export default function Post({ post, stateChanger, data}) {
     addConversations();
     history.push("/messenger");
   };
-
-  /**************** */
   const desc = useRef();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -78,91 +84,112 @@ export default function Post({ post, stateChanger, data}) {
       .put("/posts/" + post._id, { newDesc: desc.current.value })
       .then(() => {});
     setEditState(false);
-    stateChanger(data+1)
+    stateChanger(data + 1);
   };
   const handleDelete = () => {
     setAnchorEl(null);
     axios.delete("/posts/" + post._id).then(() => {});
-    stateChanger(data+1)
+    stateChanger(data + 1);
   };
   return (
-    <div className="post">
-      <div className="postWrapper">
-        <div className="postTop">
-          <div className="postTopLeft">
+    <div>
+      <div className="postContainer">
+        <div className="imagePostWH">
+          <div className="profilePictureDivFromPost">
             <Link to={`/profile/${user.username}`}>
-              <img
-                className="postProfileImg"
-                src={user.profilePicture}
-                alt=""
-              />
+              <img src={user.profilePicture} alt={user.username} />
             </Link>
-            <span className="postUsername">{user.username}</span>
-            <span className="postDate">{format(post.createdAt)}</span>
           </div>
-          {currentUser._id === post.userId && (
-            <div className="postTopRight">
-              <IconButton
-                aria-label="more"
-                aria-controls="long-menu"
-                aria-haspopup="true"
-                onClick={handleClick}
-              >
-                <MoreVertIcon />
-              </IconButton>
-              <Menu
-                id="long-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={open}
-                onClose={handleClose}
-                PaperProps={{
-                  style: {
-                    maxHeight: ITEM_HEIGHT * 4.5,
-                    width: "20ch",
-                  },
-                }}
-              >
-                <MenuItem key="edit" onClick={() => handleEdit(post._id)}>
-                  Edit
-                </MenuItem>
-                <MenuItem key="delete" onClick={() => handleDelete(post._id)}>
-                  Delete
-                </MenuItem>
-              </Menu>
+        </div>
+
+        <div className="secPostContainer">
+          <div></div>
+
+          <div className="dateAndVert">
+            <span className="createdAtDivFromPost">
+              {format(post.createdAt)}
+            </span>
+
+            <div className="moreVertDivFromPost">
+              {currentUser._id === post.userId && (
+                <div className="postTopRight">
+                  <IconButton
+                    aria-label="more"
+                    aria-controls="long-menu"
+                    aria-haspopup="true"
+                    onClick={handleClick}
+                  >
+                    <MoreVertIcon />
+                  </IconButton>
+                  <Menu
+                    id="long-menu"
+                    anchorEl={anchorEl}
+                    keepMounted
+                    open={open}
+                    onClose={handleClose}
+                    PaperProps={{
+                      style: {
+                        maxHeight: ITEM_HEIGHT * 4.5,
+                        width: "20ch",
+                      },
+                    }}
+                  >
+                    <MenuItem key="edit" onClick={() => handleEdit(post._id)}>
+                      Edit
+                    </MenuItem>
+                    <MenuItem
+                      key="delete"
+                      onClick={() => handleDelete(post._id)}
+                    >
+                      Delete
+                    </MenuItem>
+                  </Menu>
+                </div>
+              )}
             </div>
-          )}
-        </div>
-        <div className="postCenter">
-          <span className="postText">{post?.desc}</span>
-          {editState && (
-            <form onSubmit={handleSubmit}>
-              <input
-                placeholder="Edit your post here"
-                className="shareInput"
-                ref={desc}
-              />
-              <button>Update</button>
-            </form>
-          )}
-          <img className="postImg" src={post.img} alt="" />
-        </div>
-        <div className="postBottom">
-          <div className="postBottomLeft">
-            <img
-              className="likeIcon"
-              src="https://www.pinclipart.com/picdir/big/54-548007_interested-in-getting-involved-with-the-pto-raise.png"
-              onClick={interestedHandler}
-              alt=""
-            />
-            <span className="postLikeCounter">{like} people interested in it </span>
           </div>
-          <div className="postBottomRight">
-            {currentUser._id !== post.userId && (
-              <button className="postCommentText" onClick={handleContact}>
-                Contact
-              </button>
+
+          <div className="postDescDivFromPost">
+            <ScrollBars
+              className="scrolldiv"
+              horizontal
+              autoHide={false}
+              style={scrollBarStyle}
+            >
+              {post?.desc}
+            </ScrollBars>
+            {editState && (
+              <form onSubmit={handleSubmit}>
+                <input
+                  placeholder="Edit your post here"
+                  className="shareInput"
+                  ref={desc}
+                />
+                <button>Update</button>
+              </form>
             )}
+          </div>
+
+          <div className="usernameDivFromPost">
+            <Link className="linkUserName" to={`/profile/${user.username}`}>
+              {user.username}
+            </Link>
+
+            {currentUser._id !== post.userId && (
+              <QuestionAnswerOutlinedIcon
+                style={{ cursor: "pointer", color: "#FFA34C" }}
+                onClick={handleContact}
+              />
+            )}
+            <div className="postBottom">
+              <div className="postBottomLeft">
+                {" "}
+                <PlusOneOutlinedIcon onClick={interestedHandler} />{" "}
+                <span className="postLikeCounter">
+                  {like} people interested in it{" "}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,19 +1,15 @@
 import "./share.css";
-import {
-  PermMedia,
-  Cancel,
-} from "@material-ui/icons";
+import { Cancel } from "@material-ui/icons";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
+import { Button, Form } from "react-bootstrap";
 import { useHistory } from "react-router";
 
-export default function Share({stateChanger, data}) {
-
+export default function Share({ stateChanger, data }) {
   const { user } = useContext(AuthContext);
   const desc = useRef();
   const [file, setFile] = useState(null);
-
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -21,7 +17,7 @@ export default function Share({stateChanger, data}) {
       userId: user._id,
       desc: desc.current.value,
     };
-    desc.current.value = '';
+    desc.current.value = "";
     if (file) {
       const data = new FormData();
       const fileName = Date.now() + file.name;
@@ -35,54 +31,60 @@ export default function Share({stateChanger, data}) {
     }
     try {
       await axios.post("/posts/upload", newPost);
-      console.log('new Pst');
-      stateChanger(data+1)
-    } catch (err) {console.log(err);}
+      console.log("new Pst");
+      stateChanger(data + 1);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <div className="share">
-      <div className="shareWrapper">
-        <div className="shareTop">
-          <img
-            className="shareProfileImg"
-            src={
-              user.profilePicture
-            }
-            alt=""
-          />
-          <input
-            placeholder={"Welcome " + user.username + " 😊 , what do you want to swap 🔄 today?"}
-            className="shareInput"
+      <form
+        className="shareBottom"
+        onSubmit={submitHandler}
+        id="contactus_form"
+        class="contact-form"
+      >
+        <div class="form__group field">
+          <textarea
             ref={desc}
-          />
+            name="message"
+            class="form__field"
+            cols="30"
+            rows="4"
+            autocomplete="off"
+            required
+          ></textarea>
+
+          <label for="message" className="shareInput" class="form__label">
+            {"Welcome " +
+              user.username +
+              " 😊 , what do you want to swap 🔄 today?"}
+          </label>
         </div>
-        <hr className="shareHr" />
+
         {file && (
           <div className="shareImgContainer">
             <img className="shareImg" src={URL.createObjectURL(file)} alt="" />
             <Cancel className="shareCancelImg" onClick={() => setFile(null)} />
           </div>
         )}
-        <form className="shareBottom" onSubmit={submitHandler}>
-          <div className="shareOptions">
-            <label htmlFor="file" className="shareOption">
-             {/*  <PermMedia htmlColor="tomato" className="shareIcon" /> */}
-              {/* <span className="shareOptionText">Photo or Video</span> */}
-              <input
-                style={{ display: "none" }}
-                type="file"
-                id="file"
-                accept=".png,.jpeg,.jpg"
-                onChange={(e) => setFile(e.target.files[0])}
-              />
-            </label>
-          </div>
-          <button className="shareButton" type="submit">
-            Post
-          </button>
-        </form>
-      </div>
+        <div className="shareOptions">
+          <label htmlFor="file" className="shareOption">
+            <input
+              style={{ display: "none" }}
+              type="file"
+              id="file"
+              accept=".png,.jpeg,.jpg"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+          </label>
+        </div>
+        <button type="submit" class="btn-share btn-primary btn-ghost">
+          POST
+        </button>
+      </form>
     </div>
   );
 }

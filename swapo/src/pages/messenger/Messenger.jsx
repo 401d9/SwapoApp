@@ -1,10 +1,8 @@
 import "./messenger.css";
 import Conversation from "../../components/converstaions/Converstaions";
 import Message from "../../components/message/Message";
-import Header from '../../components/header/Header'
-// import ChatOnline from "../../components/chatOnline/ChatOnline";
-
-/****************************************************************************** */
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
@@ -87,9 +85,8 @@ export default function Messenger() {
       receiverId,
       text: newMessage,
       conversationId: currentChat._id,
-    }
-    );
-    
+    });
+
     try {
       const res = await axios.post("/messages", message);
       setMessages([...messages, res.data]);
@@ -111,7 +108,7 @@ export default function Messenger() {
   );
   return (
     <>
-    <Header/>
+      <Header />
       <div className="messenger">
         <div className="chatMenu">
           <div className="chatMenuWrapper">
@@ -163,6 +160,7 @@ export default function Messenger() {
           <div className="chatOnlineWrapper">{/* <ChatOnline/> */}</div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

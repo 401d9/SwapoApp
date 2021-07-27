@@ -1,6 +1,6 @@
 import "./header.css";
+import Logo from "./logo.png";
 import React, { useEffect } from "react";
-import { Chat } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
@@ -8,6 +8,13 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import axios from "axios";
 import { useHistory } from "react-router";
+import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
+import PermIdentityOutlinedIcon from "@material-ui/icons/PermIdentityOutlined";
+import SettingsOutlinedIcon from "@material-ui/icons/SettingsOutlined";
+import NotificationsNoneOutlinedIcon from "@material-ui/icons/NotificationsNoneOutlined";
+import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone";
+import MeetingRoomTwoToneIcon from "@material-ui/icons/MeetingRoomTwoTone";
+import QuestionAnswerOutlinedIcon from "@material-ui/icons/QuestionAnswerOutlined";
 
 export default function Topbar() {
   const { user } = useContext(AuthContext);
@@ -22,7 +29,6 @@ export default function Topbar() {
 
   const handleClose = () => {
     setAnchorEl(null);
-
   };
 
   const handleChat = async (idx) => {
@@ -31,9 +37,9 @@ export default function Topbar() {
       index: idx,
     };
     const res = await axios.put("/notif", objOfUser);
-    console.log('stat=line34', numOfNotif);
+    console.log("stat=line34", numOfNotif);
     setNumOfNotif(-1);
-    console.log('stat=line34', numOfNotif);
+    console.log("stat=line34", numOfNotif);
   };
 
   const handleLogout = () => {
@@ -52,35 +58,45 @@ export default function Topbar() {
     };
     getNotif();
   }, [user._id]);
-  
+
   return (
-    <div className="topbarContainer">
-      <div className="topbarLeft">
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <span className="logo">Swapo</span>
-        </Link>
-      </div>
-      <div className="topbarRight">
-        <div className="topbarLinks">
-          <Link className="topbarLink" to="/home">
-            Homepage
-          </Link>
-          <Link className="topbarLink" to={`/profile/${user.username}`}>
-            Profile
-          </Link>
-          <Link className="topbarLink" to="/setting">
-            Setting
-          </Link>
-          <Link className="topbarLink" to="/messenger">
-            messenger
-          </Link>
-          <Link className="topbarLink" to="/login">
-            login
+    <>
+      <div className="topbarContainer">
+        <div className="topbarLeft">
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <img className="logofromHeader" src={Logo} alt="" />
           </Link>
         </div>
-        <div className="topbarIcons">
-          <div className="topbarIconItem">
-            <Chat onClick={handleClick}></Chat>
+        <div className="midPartHeader myDIV">
+          {/* home */}
+          <div>
+            <Link className="topbarLink" to="/home">
+              <HomeOutlinedIcon
+                style={{ fontSize: "33px", color: "#82E5FF" }}
+              />
+            </Link>
+          </div>
+          {/* profile */}
+          <div>
+            <Link className="topbarLink" to={`/profile/${user.username}`}>
+              <PermIdentityOutlinedIcon
+                style={{ fontSize: "33px", color: "#82E5FF" }}
+              />
+            </Link>
+          </div>
+          {/* messenger */}
+          <div>
+            <Link to={"/messenger"}>
+              <QuestionAnswerOutlinedIcon
+                style={{ fontSize: "33px", color: "#82E5FF" }}
+              />
+            </Link>
+          </div>
+          <div>
+            <NotificationsNoneOutlinedIcon
+              style={{ fontSize: "33px", color: "#82E5FF" }}
+              onClick={handleClick}
+            />
             <Menu
               id="simple-menu"
               anchorEl={anchorEl}
@@ -105,12 +121,44 @@ export default function Topbar() {
             </Menu>
             <span className="topbarIconBadge">{notif.length}</span>
           </div>
+          <div>
+            <Link className="topbarLink" to="/setting">
+              <SettingsOutlinedIcon
+                style={{ fontSize: "33px", color: "#82E5FF" }}
+              />
+            </Link>
+          </div>
         </div>
-        <Link to={`/profile/${user.username}`}>
-          <img src={user.profilePicture} alt="" className="topbarImg" />
-        </Link>
-        <button onClick={handleLogout}>Logout</button>
+        <div className="rightPartHeader">
+          <MeetingRoomTwoToneIcon
+            onClick={handleLogout}
+            style={{
+              fontSize: "33px",
+              color: "#F9F9F9",
+              float: "right",
+              marginRight: "3%",
+            }}
+          />
+          <Link to="/aboutus">
+            <InfoTwoToneIcon
+              style={{
+                fontSize: "33px",
+                color: "#F9F9F9",
+                float: "right",
+                marginRight: "3%",
+              }}
+            />
+          </Link>
+          <Link to={`/profile/${user.username}`}>
+            <img
+              style={{ float: "right", marginRight: "4%" }}
+              src={user.profilePicture}
+              alt=""
+              className="topbarImg"
+            />
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
