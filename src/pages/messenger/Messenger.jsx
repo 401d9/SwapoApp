@@ -20,7 +20,7 @@ export default function Messenger() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io();
+    socket.current = io('https://swapo-backend.herokuapp.com');
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
