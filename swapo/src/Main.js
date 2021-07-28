@@ -5,10 +5,11 @@ import Profile from "./pages/profile/Profile";
 import Login from "./pages/login/Login";
 import Home from "./pages/home/Home";
 import Setting from "./pages/setting/Setting";
+import About from "./pages/about-us/about.jsx";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 function Main() {
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <Switch>
@@ -18,7 +19,7 @@ function Main() {
         <Route exact path="/home">
           {user ? <Home /> : <Login />}
         </Route>
-        <Route path="/login"><Login/></Route>
+        <Route path="/login"><Login /></Route>
         <Route path="/register">
           {user ? <Redirect to="/home" /> : <Register />}
         </Route>
@@ -30,6 +31,9 @@ function Main() {
         </Route>
         <Route path="/setting">
           <Setting />
+        </Route>
+        <Route path="/about-us">
+          <About />
         </Route>
       </Switch>
     </Router>

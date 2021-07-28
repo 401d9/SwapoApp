@@ -150,7 +150,11 @@ export default function Topbar() {
               cursor:'pointer'
             }}
           />
-          <Link title='Info, About us' to="/aboutus">
+
+          <Link to="/about-us">
+
+          
+
             <InfoTwoToneIcon
               style={{
                 fontSize: "33px",
