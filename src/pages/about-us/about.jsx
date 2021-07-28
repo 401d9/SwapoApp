@@ -9,7 +9,7 @@ export default function About() {
       <div className='about'>
         <div data-aos="fade-up" data-aos-duration="1000" class="divshadow">
           <div class="container-fluid-about">
-            <div class="row">
+            <div class="rowwwwwwwww">
               <div class="col-sm-8">
                 <h2 className='h2-about'>About Swapo</h2>
                 <h4 className='h4-about'>Web app that connects many service providers and those who give their services to each other by swap their knowledge and expertise.</h4>
@@ -22,7 +22,7 @@ export default function About() {
           </div>
         </div>
         <div class="container-fluid-about bg-grey">
-          <div class="row">
+          <div class="rowwwwwwwww">
             <div class="col-sm-4">
               <span class="glyphicon glyphicon-globe logo-about"></span>
             </div>
@@ -35,7 +35,7 @@ export default function About() {
         </div>
         <h2 className='h3-about' style={{ 'text-align': 'center' }}>Our Team</h2>
         <div class="container">
-          <div class="row">
+          <div class="rowwwwwwwww">
             <div class="col-md-4">
               <div class="profile-card-4 text-center"><img src="https://ca.slack-edge.com/TNGRRLUMA-U01L7MM7DLM-c0a1f533b4a1-512" class="img img-responsive" />
                 <div class="profile-content">

@@ -60,7 +60,7 @@ export default function Share({ stateChanger, data }) {
             autocomplete="off"
             required
 
-            style={{height: "109%"}}
+            style={{ height: "109%" }}
           ></textarea>
 
           <label for="message" className="shareInput" class="form__label">
@@ -91,8 +91,18 @@ export default function Share({ stateChanger, data }) {
         <Button
           type="submit"
           as="input"
-          value="Update"
-          style={{ backgroundColor: "#FFA34C", border: "#FFA34C" }}
+          value="Post"
+          style={{
+
+            backgroundColor: "rgb(255, 163, 76)",
+        border: "rgb(255, 163, 76)",
+        /* width: 77px, */
+        padding: "7px",
+        margin: "10px",
+        width: "69px",
+        fontSize: "17px",
+    
+           }}
         />{" "}
         {/* POST
         </button> */}

@@ -34,19 +34,16 @@ export default function Register() {
 
   return (
     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-      <div className="row">
-        {" "}
-        <img src={Logo} className="logoLogin" />{" "}
-      </div>
+
       <form onSubmit={handleClick}>
         <div className="cardA card0 border-0">
           <div className="row d-flex">
             <div className="col-lg-6">
               <div className="card1 pb-5">
-                {/* <div className="row">
+                <div className="row">
                   {" "}
-                  <img src={Logo} className="logoLogin" />{" "}
-                </div> */}
+                  <img src={Logo} className="logoLoginR" />{" "}
+                </div>
                 <div className="row px-3 justify-content-center mt-4 mb-5 border-line">
                   {" "}
                   {" "}
@@ -55,7 +52,7 @@ export default function Register() {
               </div>
             </div>
             <div className="col-lg-6">
-              <div style={{marginTop:'-58px'}} className="card2  border-0 px-4 py-5">
+              <div style={{marginTop:'36px'}} className="card2  border-0 px-4 py-5">
                 <div className="row mb-4 px-3">
                   <larg className="font-weight-bold">
                     <h6 className="mb-0 mr-4 mt-2">Sign Up with</h6>

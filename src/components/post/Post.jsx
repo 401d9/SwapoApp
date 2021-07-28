@@ -76,9 +76,9 @@ export default function Post({ post, stateChanger, data }) {
     console.log("setEditState(false);00");
     axios
       .put("https://swapo-backend.herokuapp.com/posts/" + post._id, { newDesc: desc.current.value })
-      .then(() => { });
-    setEditState(false);
-    stateChanger(data + 1);
+      .then(() => {});
+       setEditState(false);
+       stateChanger(data + 1);
   };
   const handleDelete = () => {
     setAnchorEl(null);
