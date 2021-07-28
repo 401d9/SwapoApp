@@ -13,11 +13,12 @@ export default function Setting() {
   const [userData, setUser] = useState({});
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${user.username}`);
+      const res = await axios.get(`/users?username=${userData.username}`);
       setUser(res.data);
     };
     fetchUser();
-  }, [user.username]);
+  }, [userData.username]);
+
   const name = useRef();
   const email = useRef();
   const service = useRef();
@@ -36,16 +37,20 @@ export default function Setting() {
       profilePicture: profilePicture.current.value,
       profileCover: profileCover.current.value,
     };
+    e.target.reset();
     const config = {
-      headers: { Authorization: `Bearer ${user.token}` },
+      headers: { Authorization: `Bearer ${userData.token}` },
     };
     try {
       const res = await axios.put("/profile", userObj, config);
       console.log("res from setting", res);
+      setUser(res.data);
+      localStorage.setItem("user", JSON.stringify(res.data));
     } catch (err) {
       console.log(err);
     }
   };
+
 
   return (
     <div className="settingCardForm">
@@ -56,60 +61,60 @@ export default function Setting() {
             {/* profile photo, name, userName, 'About', description */}
             <img
               className="profileImgSetting"
-              src={user.profilePicture}
+              src={userData.profilePicture}
               alt=""
             />
             {/* <h5>Select profile photo</h5> */}
-            {/* <Form.Control value={user.username} ref={name} placeholder="Enter name" type="text" /> */}
+            {/* <Form.Control value={userData.username} ref={name} placeholder="Enter name" type="text" /> */}
             {/* <AddAPhotoOutlinedIcon></AddAPhotoOutlinedIcon> */}
             <Form.Control
               ref={profilePicture}
               type="link"
-              placeholder={user.profileCover}
+              placeholder={userData.profileCover}
               size="sm"
             />
-            <h4>{user.username}</h4>
-            <p>{user.email}</p>
+            <h4>{userData.username}</h4>
+            <p>{userData.email}</p>
             <br></br>
             <h5>About</h5>
-            <p>{user.descriptionOfUser}</p>
+            <p>{userData.descriptionOfUser}</p>
           </div>
           {/* <div className="secSettingCard"  > */}
           <div className="leftSecSettingCard">
             {/* Personal Details->  Full Name,  User name*/}
             <h5>Personal Details</h5>
             <h6>Name</h6>
-            <Form.Control ref={name} placeholder={user.name} type="text" />
+            <Form.Control ref={name} placeholder={userData.name} type="text" />
             <h6>Email</h6>
-            <Form.Control ref={email} placeholder={user.email} />
+            <Form.Control ref={email} placeholder={userData.email} />
             {/* profile pic, cover */}
             <br></br>
             <h5>Select profile cover</h5>
             <Form.Control
               ref={profileCover}
               type="link"
-              placeholder={user.profileCover}
+              placeholder={userData.profileCover}
               size="sm"
               id="img"
               name="img"
               accept="image/*"
             />
             <br />
-            <img className="coverImgSetting" src={user.profileCover} alt="" />
+            <img className="coverImgSetting" src={userData.profileCover} alt="" />
           </div>
           <div className="rightSecSettingCard">
             {/* Personal Details->  service,  exper*/}
             <h5>Information</h5>
             <h6>Service</h6>
-            <Form.Control ref={service} placeholder={user.service} />
+            <Form.Control ref={service} placeholder={userData.service} />
             <h6>Experience</h6>
-            <Form.Control ref={experience} placeholder={user.experience} />
+            <Form.Control ref={experience} placeholder={userData.experience} />
             <h6>Description</h6>
             <Form.Control
               as="textarea"
               rows={3}
               ref={descriptionOfUser}
-              placeholder={user.descriptionOfUser}
+              placeholder={userData.descriptionOfUser}
               name=""
               id=""
               cols="30"
@@ -117,7 +122,9 @@ export default function Setting() {
             />
           </div>
           {/* </div> */}
-          <div className="settingBtn">
+        </div>
+
+        <div className="settingBtn">
             <Button
               type="submit"
               as="input"
@@ -125,7 +132,6 @@ export default function Setting() {
               style={{ backgroundColor: "#FFA34C", border: "#FFA34C" }}
             />{" "}
           </div>
-        </div>
       </form>
       <Footer />
     </div>
