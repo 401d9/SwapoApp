@@ -91,14 +91,14 @@ export default function Setting() {
             <div className="leftSecSettingCard">
               {/* Personal Details->  Full Name,  User name*/}
               <h5>Personal Details</h5>
-              <h6>Name</h6>
+              <h6  style={{margin: '5px 0'}} className='sett-h6' >Name</h6>
 
               <Form.Control ref={name} placeholder={userData.name} type="text" />
-              <h6>Email</h6>
+              <h6  style={{margin: '5px 0'}} className='sett-h6' >Email</h6>
               <Form.Control ref={email} placeholder={userData.email} />
               {/* profile pic, cover */}
               <br></br>
-              <h5>Select profile cover</h5>
+              <h5  style={{margin: '5px 0'}} className='sett-h6'  >Select profile cover</h5>
               <Form.Control
                 ref={profileCover}
                 type="link"
@@ -114,11 +114,11 @@ export default function Setting() {
             <div className="rightSecSettingCard">
               {/* Personal Details->  service,  exper*/}
               <h5>Information</h5>
-              <h6>Service</h6>
+              <h6  style={{margin: '5px 0'}} className='sett-h6'  >Service (what is the service that you provide)</h6>
               <Form.Control ref={service} placeholder={userData.service} />
-              <h6>Experience</h6>
+              <h6 style={{margin: '5px 0'}} className='sett-h6' >Experience (provide your experience in years)</h6>
               <Form.Control ref={experience} placeholder={userData.experience} />
-              <h6>Description</h6>
+              <h6  style={{margin: '5px 0'}} className='sett-h6'  >Description</h6>
               <Form.Control
                 as="textarea"
                 rows={3}
