@@ -12,12 +12,17 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import PlusOneOutlinedIcon from "@material-ui/icons/PlusOneOutlined";
+// import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
+
 const ITEM_HEIGHT = 48;
 
 const scrollBarStyle = {
-  height: "107px",
-  width: "633px",
-  margin: "-0.5%",
+  padding: "10px 0",
+  height: "100px",
+  width: "639px",
+  margin: "-7% 0",
+  marginTop: '20px',
 };
 
 export default function Post({ post, stateChanger, data }) {
@@ -43,7 +48,7 @@ export default function Post({ post, stateChanger, data }) {
   const interestedHandler = () => {
     try {
       axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
-    } catch (err) {}
+    } catch (err) { }
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
@@ -82,13 +87,13 @@ export default function Post({ post, stateChanger, data }) {
     console.log("setEditState(false);00");
     axios
       .put("/posts/" + post._id, { newDesc: desc.current.value })
-      .then(() => {});
+      .then(() => { });
     setEditState(false);
     stateChanger(data + 1);
   };
   const handleDelete = () => {
     setAnchorEl(null);
-    axios.delete("/posts/" + post._id).then(() => {});
+    axios.delete("/posts/" + post._id).then(() => { });
     stateChanger(data + 1);
   };
   return (
@@ -103,23 +108,86 @@ export default function Post({ post, stateChanger, data }) {
         </div>
 
         <div className="secPostContainer">
-          <div></div>
+          {/* <div></div> */}
 
           <div className="dateAndVert">
             <span className="createdAtDivFromPost">
               {format(post.createdAt)}
             </span>
 
-            <div className="moreVertDivFromPost">
-              {currentUser._id === post.userId && (
-                <div className="postTopRight">
+
+          </div>
+
+          <div className='aaaaaaaaaaaaaa'>
+
+            <div className="postDescDivFromPost">
+              <ScrollBars
+                className="scrolldiv"
+                horizontal
+                autoHide={false}
+                style={scrollBarStyle}
+              >
+                {post?.desc}
+              </ScrollBars>
+              {editState && (
+                <form onSubmit={handleSubmit}>
+                  <input
+                    placeholder="Edit your post here"
+                    className="shareInput"
+                    ref={desc}
+                  />
+                  <button>Update</button>
+                </form>
+              )}
+            </div>
+          </div>
+
+          <span className='ooooooooo'>
+            {/* <div className="usernameDivFromPost"> */}
+            <span className="nameSpan">
+              <Link className="linkUserName" style={{ fontSize: '30', fontWeight: "700" }} to={`/profile/${user.username}`}>
+                {user.username}
+              </Link>
+            </span>
+
+
+
+            <span className='uuuuuuuuuuuuu'>
+
+              <span className="likeSpan">
+                {/* <div className="postBottom"> */}
+                {/* <div className="postBottomLeft"> */}
+                {" "}
+                <PlusOneOutlinedIcon onClick={interestedHandler} style={{ cursor: "pointer", color: "#FFA34C", border: '2px solid', borderRadius: "50%", fontSize: '30', fontWeight: "700", padding: "4px" }} />{" "}
+                <span className="postLikeCounter">
+                  {/* {like} interested{" "} */}
+                </span>
+                {/* </div> */}
+                {/* </div> */}
+              </span>
+
+              <span className="chatSpan">
+                {currentUser._id !== post.userId && (
+                  <QuestionAnswerOutlinedIcon
+                    style={{ cursor: "pointer", color: "#FFA34C", border: '2px solid', borderRadius: "50%", fontSize: '30', fontWeight: "700", padding: "4px" }}
+                    onClick={handleContact}
+                  />
+                )}</span>
+
+              <span>
+                {/* <div className="moreVertDivFromPost"> */}
+                {currentUser._id === post.userId && (
+                <span >
                   <IconButton
                     aria-label="more"
                     aria-controls="long-menu"
                     aria-haspopup="true"
                     onClick={handleClick}
                   >
-                    <MoreVertIcon />
+                    <MoreVertOutlinedIcon
+                      style={{ cursor: "pointer", color: "#FFA34C", border: '2px solid', borderRadius: "50%", fontSize: '30', fontWeight: "700", padding: "4px" }}
+
+                    />
                   </IconButton>
                   <Menu
                     id="long-menu"
@@ -144,55 +212,40 @@ export default function Post({ post, stateChanger, data }) {
                       Delete
                     </MenuItem>
                   </Menu>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="postDescDivFromPost">
-            <ScrollBars
-              className="scrolldiv"
-              horizontal
-              autoHide={false}
-              style={scrollBarStyle}
-            >
-              {post?.desc}
-            </ScrollBars>
-            {editState && (
-              <form onSubmit={handleSubmit}>
-                <input
-                  placeholder="Edit your post here"
-                  className="shareInput"
-                  ref={desc}
-                />
-                <button>Update</button>
-              </form>
-            )}
-          </div>
-
-          <div className="usernameDivFromPost">
-            <Link className="linkUserName" to={`/profile/${user.username}`}>
-              {user.username}
-            </Link>
-
-            {currentUser._id !== post.userId && (
-              <QuestionAnswerOutlinedIcon
-                style={{ cursor: "pointer", color: "#FFA34C" }}
-                onClick={handleContact}
-              />
-            )}
-            <div className="postBottom">
-              <div className="postBottomLeft">
-                {" "}
-                <PlusOneOutlinedIcon onClick={interestedHandler} />{" "}
-                <span className="postLikeCounter">
-                  {like} people interested in it{" "}
                 </span>
-              </div>
-            </div>
-          </div>
+              )}
+                {/* </div> */}
+              </span>
+            </span>
+
+
+
+
+          </span>
+
+
+
+
+
+
+
+          {/* </div> */}
         </div>
       </div>
+
+
+
+      {/* import QuestionAnswerOutlinedIcon from "@material-ui/icons/QuestionAnswerOutlined";
+import IconButton from "@material-ui/core/IconButton";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import PlusOneOutlinedIcon from "@material-ui/icons/PlusOneOutlined";
+// import EditOutlinedIcon from '@material-ui/icons/EditOutlined';
+import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined'; */}
+
+
+
     </div>
   );
 }
