@@ -57,7 +57,7 @@ export default function Topbar() {
       }
     };
     getNotif();
-  }, [user._id]);
+  }, [user._id,notif]);
 
   return (
     <>
