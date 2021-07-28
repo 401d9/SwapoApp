@@ -34,19 +34,24 @@ export default function Register() {
 
   return (
     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+        <div className="row">
+                  {" "}
+                  <img src={Logo} className="logoLogin" />{" "}
+                </div>
       <form onSubmit={handleClick}>
         <div className="cardA card0 border-0">
           <div className="row d-flex">
             <div className="col-lg-6">
               <div className="card1 pb-5">
-                <div className="row">
+                {/* <div className="row">
                   {" "}
                   <img src={Logo} className="logoLogin" />{" "}
-                </div>
+                </div> */}
                 <div className="row px-3 justify-content-center mt-4 mb-5 border-line">
                   {" "}
-                  <Slider />{" "}
+                  {" "}
                 </div>
+                <Slider />
               </div>
             </div>
             <div className="col-lg-6">
@@ -140,7 +145,7 @@ export default function Register() {
                   </div>
                 </div>
                 <div className="row mb-3 px-3">
-                  <Link to="">
+               
                     {" "}
                     <button
                       type="submit"
@@ -148,7 +153,7 @@ export default function Register() {
                     >
                       Sign up
                     </button>
-                  </Link>{" "}
+                 
                 </div>
                 <div className="row mb-4 px-3">
                   {" "}
@@ -165,5 +170,68 @@ export default function Register() {
         </div>
       </form>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  //   <div className="login">
+  //     <div className="loginWrapper">
+  //       <div className="loginLeft">
+  //         <h3 className="loginLogo">Swapo</h3>
+  //         <span className="loginDesc">
+  //         Web app that connects many service providers and those who give their services to each other by swap their knowledge and expertise.
+  //         </span>
+  //       </div>
+  //       <div className="loginRight">
+  //         <form className="loginBox" onSubmit={handleClick}>
+  //           <input
+  //             placeholder="Username"
+  //             required
+  //             ref={username}
+  //             className="loginInput"
+  //           />
+  //           <input
+  //             placeholder="Email"
+  //             required
+  //             ref={email}
+  //             className="loginInput"
+  //             type="email"
+  //           />
+  //           <input
+  //             placeholder="Password"
+  //             required
+  //             ref={password}
+  //             className="loginInput"
+  //             type="password"
+  //             minLength="6"
+  //           />
+  //           <input
+  //             placeholder="Password Again"
+  //             required
+  //             ref={passwordAgain}
+  //             className="loginInput"
+  //             type="password"
+  //           />
+  //           <button className="loginButton" type="submit">
+  //             Sign Up
+  //           </button>
+  //           <button onClick={handleIntoAccount} className="loginRegisterButton">Log into Account</button>
+  //         </form>
+  //       </div>
+  //     </div>
+  //   </div>
   );
 }

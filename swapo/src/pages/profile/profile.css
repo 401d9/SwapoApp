@@ -286,3 +286,30 @@
 .rating {
   margin: -18px 0 0 47px;
 }
+
+.card-list::-webkit-scrollbar
+{
+	height: 3px;
+	background-color: #F5F5F5;
+}
+
+.card-list::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	background-color: #ddd;
+}
+
+.card-list li {
+  display: inline;
+  margin-left: 10px;
+}
+
+.card-list li:first-child {
+  margin-left: 0;
+}
+
+.rating{
+  margin: -18px 0 0 47px;
+ 
+}

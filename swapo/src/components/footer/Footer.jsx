@@ -1,22 +1,25 @@
 import './footer.css'
 import Logo from './logo.png'
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 function Footer(){
+  const { user } = useContext(AuthContext);
  return(
 <footer className="footer-distributed">
   <div className="footer-left">
     <h3><img src={Logo} alt=''/></h3>
     <p className="footer-links">
-      <a href="#" style={{'paddingRight':'5'}}> Home  </a>
+      <a href="/home" style={{'paddingRight':'5'}}> Home  </a>
+      
+      {'  '}
+      <a href="/messenger">Messenger</a>
+      {'  '}
+      <a href="/setting">Setting </a>
+      {'  '}
+      <a href="/aboutus">About us</a>
       {' '}  
-      <a href="#">Profile</a>
-      {'  '}
-      <a href="#">Setting </a>
-      {'  '}
-      <a href="#">Messenger</a>
-      {'  '}
-      <a href="#">About</a>
-      {'  '}
-      <a href="#">Login</a>
+      <a href={`/profile/${user.username}`}>Profile</a>
+    
     </p>
     <p className="footer-company-name">SWAPO © 2021</p>
   </div>

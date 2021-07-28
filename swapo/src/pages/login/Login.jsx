@@ -73,15 +73,20 @@ export default function Login() {
     </div>
   ); */
     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+
+     <div className="row-main">
+                  {" "}
+                  <img src={Logo} className="logoLogin" />{" "}
+                </div>
       <form onSubmit={handleClick}>
         <div className="cardA card0 border-0">
           <div className="row-login d-flex">
             <div className="col-lg-6 ">
               <div className="card1 pb-5">
-                <div className="row">
+                {/* <div className="row-main">
                   {" "}
                   <img src={Logo} className="logoLogin" />{" "}
-                </div>
+                </div> */}
                 {/* <div className="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" className="image" /> </div> */}
                 <Slider />
               </div>
@@ -147,7 +152,7 @@ export default function Login() {
                     </label>{" "}
                   </div>
                 </div>
-                <div className="row mb-3 px-3">
+                <div className="row1 mb-3 px-3">
                   {" "}
                   <button
                     type="submit"
@@ -157,11 +162,11 @@ export default function Login() {
                     Login
                   </button>{" "}
                 </div>
-                <div className="row mb-4 px-3">
+                <div className="row1 mb-4 px-3">
                   {" "}
                   <larg className="font-weight-bold">
                     Don't have an account?{" "}
-                    <Link className="text-danger " to="/register">
+                    <Link className="text-danger " to="/register" style={{'color':'#FFA34C'}}>
                       Register
                     </Link>{" "}
                   </larg>{" "}
