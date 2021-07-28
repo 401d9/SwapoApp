@@ -1,10 +1,12 @@
 import './App.css';
 import { Link } from "react-router-dom";
-
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer"
+import Login from "../../components/login/Login"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -14,7 +16,11 @@ function App() {
         <Link to ='/login'>login</Link>
         <Link to ='/home'>home</Link>
         <Link to ='/setting'>Setting</Link>
-      </header>
+      </header> */}
+
+      <Header/>
+      <Login/>
+      <Footer/>
     </div>
   );
 }

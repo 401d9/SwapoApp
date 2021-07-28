@@ -64,13 +64,13 @@ export default function Topbar() {
       <div className="topbarContainer">
         <div className="topbarLeft">
           <Link to="/" style={{ textDecoration: "none" }}>
-            <img className="logofromHeader" src={Logo} alt="" />
+            <img title='Swapo' className="logofromHeader" src={Logo} alt="" />
           </Link>
         </div>
         <div className="midPartHeader myDIV">
           {/* home */}
           <div>
-            <Link className="topbarLink" to="/home">
+            <Link title='Home' className="topbarLink" to="/home">
               <HomeOutlinedIcon
                 style={{ fontSize: "33px", color: "#82E5FF" }}
               />
@@ -78,7 +78,7 @@ export default function Topbar() {
           </div>
           {/* profile */}
           <div>
-            <Link className="topbarLink" to={`/profile/${user.username}`}>
+            <Link title='Profile' className="topbarLink" to={`/profile/${user.username}`}>
               <PermIdentityOutlinedIcon
                 style={{ fontSize: "33px", color: "#82E5FF" }}
               />
@@ -86,15 +86,15 @@ export default function Topbar() {
           </div>
           {/* messenger */}
           <div>
-            <Link to={"/messenger"}>
+            <Link title='Messages' to={"/messenger"}>
               <QuestionAnswerOutlinedIcon
                 style={{ fontSize: "33px", color: "#82E5FF" }}
               />
             </Link>
           </div>
-          <div>
+          <div title='Notifications'>
             <NotificationsNoneOutlinedIcon
-              style={{ fontSize: "33px", color: "#82E5FF" }}
+              style={{ fontSize: "33px", color: "#82E5FF", cursor: 'pointer' }}
               onClick={handleClick}
             />
             <Menu
@@ -119,17 +119,27 @@ export default function Topbar() {
                 </MenuItem>
               )}
             </Menu>
-            <span className="topbarIconBadge">{notif.length}</span>
+            <span
+
+              style={{
+                color: 'white', backgroundColor: '#f0294a', borderRadius: '70%', padding: "2px",
+                border: "5px solid rgb(240, 41, 74)",
+                marginLeft: "-9px",
+                borderTop: "none",
+                borderBottom: "none"
+              }}
+
+              className="topbarIconBadge">{notif.length}</span>
           </div>
           <div>
-            <Link className="topbarLink" to="/setting">
+            <Link title='settings' className="topbarLink" to="/setting">
               <SettingsOutlinedIcon
                 style={{ fontSize: "33px", color: "#82E5FF" }}
               />
             </Link>
           </div>
         </div>
-        <div className="rightPartHeader">
+        <div title='Logout' className="rightPartHeader">
           <MeetingRoomTwoToneIcon
             onClick={handleLogout}
             style={{
@@ -137,9 +147,14 @@ export default function Topbar() {
               color: "#F9F9F9",
               float: "right",
               marginRight: "3%",
+              cursor:'pointer'
             }}
           />
+
           <Link to="/about-us">
+
+          
+
             <InfoTwoToneIcon
               style={{
                 fontSize: "33px",
@@ -149,9 +164,9 @@ export default function Topbar() {
               }}
             />
           </Link>
-          <Link to={`/profile/${user.username}`}>
+          <Link title='Profile' to={`/profile/${user.username}`}>
             <img
-              style={{ float: "right", marginRight: "4%" }}
+              style={{ float: "right", marginRight: "4%", border:'3px solid #f9f9f9' }}
               src={user.profilePicture}
               alt=""
               className="topbarImg"

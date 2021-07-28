@@ -1,47 +1,124 @@
 .postContainer {
-  // border: 1px solid rgba(221, 221, 221, 0);
   background-color: #FFFFFF;
   border-radius: 0.5%;
-  box-shadow: 0 0 50px rgba(0,0,0,.3);
+  // box-shadow: 0 0 20px rgba(0,0,0,.3);
+}
+
+.peopleAtDivFromPost {
+  color: #B1B1B1;
+    margin-top: 55px;
+    // margin-left: 8px;
+    font-size: 14px;
+}
+.mmmmmmmmmm {
+  display: flex;
+  /* margin: 0 0%; */
+  /* flex-direction: unset; */
+  /* padding: 0 2%; */
+  justify-content: space-evenly;
+  /* margin: 0 34%; */
+  /* float: right; */
+  /* width: 1%; */
+  flex: wrap 1;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  // margin-top: 3%;
+  /* height: 45px; */
+  border-bottom: 5px solid #006e89;
+  padding: 6px;
+}
+
+.ooooooooo{
+  margin: 22px;
+}
+
+
+.chatSpan {
+  position: relative;
+  left: 10px;
+}
+
+
+.moreVertDivFromPost{
+  height: 35px;}
+
+.usernameDivFromPost{
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
 }
 .profilePictureDivFromPost{
   height: 233px;
 }
-.secPostContainer{
-  margin: 2% 0.5%;
-//   clip-path: polygon(0% 100%, 100% 100%,100% 0%,12% 0%); 
-// background-color: yellow;
-}
-.usernameDivFromPost{
-  margin-top: 10px;
-}
-// @media (max-width: 980px) {
-//   div {
-//     display: flex;
-//     justify-content: space-around;
-//     flex-wrap: wrap;
-//   }
-// }
 
+.usernameDivFromPost span{
+  display: inline;
 
-// @media (min-width: 1357px) {  
+}
+
+.aaaaaaaaaaaaaa{
+  height: 139px;}
+
   .postContainer {
-    margin: 3% 0;
-    height: 189px;
-  display: grid;
+    // margin: 3% 0;
+    height: 223px;
+          display: grid;
   gap: 0;
   grid-template-columns: 1fr 2fr;
   }
   .postContainerTest:nth-child(even) {
+    // .linkUserName {
+    //   font-weight: 700;
+    //   width: 95px;
+    //   height: -12px;
+    //   margin-top: 12px;
+    // }
+
+    .peopleAtDivFromPost{
+      margin-top: 48px;
+
+    }
+
+    .uuuuuuuuuuuuu{
+          position: relative;
+    top: -14px;
+    }
+
+
+    .moreVertDivFromPost{
+      float: right;
+    margin-right: 15px;
+    margin-top: -13px;
+    }
+    .postDescDivFromPost{
+  width: 172px;
+}
+    .chatSpan{
+      margin-top: -5px;
+    }
+    .secPostContainer{
+      margin: 2% 0;
+      // margin: 1%;
+      margin-left: -7%;    }
+    .usernameDivFromPost{
+
+    }
     .profilePictureDivFromPost img{
       width: 293px;
-      height: 189px;
+      height: 199px;
       object-fit: cover;
       clip-path: polygon(0% -700%, 0% 100%, 100% 100%)
     }
+    .postContainer {
+
+    }
+
+
+
     .createdAtDivFromPost {
       float: left;
-      color: #B1B1B1;
+      color: #B1B1B1; 
     }
     .moreVertDivFromPost{
       float: right;
@@ -56,15 +133,13 @@
         cursor: pointer;
         text-decoration: none;
         color:#006E89;
-        font-size: 25px;
-        font-weight:900;
         float: left;
       }
       .profilePictureDivFromPost {
         display: inline-block;
         position: relative;
         width: 253px;
-        height: 189px;
+        height: 223px;
         background:#006E89;
         box-sizing: border-box;
         clip-path: polygon(0% -700%, 0% 100%, 100% 100%)
@@ -74,20 +149,37 @@
         top: 0px;
         left: -1px;
         width: 249px;
-        height: 192px;
-         clip-path: polygon(0% -700%, 0% 100%, 100% 100%)
+        height: 223px;
+        clip-path: polygon(0% -700%, 0% 100%, 100% 100%)
       }
   }
   .postContainerTest:nth-child(odd) {
+
+    .linkUserName {
+      font-weight: 700;
+      width: 95px;
+      height: -12px;
+      margin-top: 12px;
+    }
+
+
+    .usernameDivFromPost{
+      // padding: 2%;
+      margin-top: 10px;
+          }
     .postContainer{
+
       display:flex;
       flex-direction:row-reverse;
      
     }
+
+    .postContainer {
+
+}
+
     .secPostContainer{
       display: inline-block;
-      width: 73%;
-      margin-left: 2%;
       }
     .imagePostWH{
       display: inline-block;
@@ -95,40 +187,40 @@
     .createdAtDivFromPost {
       float: right;
       color: #B1B1B1;
-    }
+      margin-top: 10px;
+      margin-left: 8px;    }
     .moreVertDivFromPost{
       float: right;
     }
     .dateAndVert{ float: left; 
-      margin-left: -12px;}
+      margin-left: -12px;
+    }
     .postDescDivFromPost{
-      // float: left;
       color: #006E89;
       display: block;
       font-size: 16px;
+      /* width: 108%; */
+      // margin-left: 34px;
+      padding: 0% 0;
       }
       .linkUserName:-webkit-any-link {
         color: -webkit-link;
         cursor: pointer;
         text-decoration: none;
         color:#006E89;
-        font-size: 25px;
+        // font-size: 25px;
         font-weight:900;
         float: left;
-        margin-top: -8px;
-        // margin-top: -33px;
+        // margin-top: -8px;
       }
-      .scrolldiv{
-        margin-left: 0;
-      }
+
   }
   .profilePictureDivFromPost {
     display: inline-block;
     position: relative;
     width: 253px;
-    height: 189px;
-    background:#FFA34C;
-    box-shadow: 0 0 30px rgba(221, 8, 8, 0.075);
+    height: 223px;
+    background: #006E89;
     box-sizing: border-box;
     clip-path: polygon(0% 100%, 100% 100%,100% 0%,12% 0%);
   }
@@ -136,11 +228,10 @@
     position: absolute;
     top: -2px;
      right: -2px;
-      width: 249px;
-      height: 192px;
+     width: 249px;
+     height: 225px;
      clip-path: polygon(0% 100%, 100% 100%,100% 0%,12% 0%);
   }
-// }
 .MuiSvgIcon-root {
   fill: currentColor;
   width: 1em;
@@ -150,7 +241,6 @@
   transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   flex-shrink: 0;
   user-select: none;
-  // color: #FFA34C;
 }
 .profilePictureDivFromPost:after {
   content: "";
