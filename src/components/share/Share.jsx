@@ -26,11 +26,11 @@ export default function Share({ stateChanger, data }) {
       newPost.img = fileName;
       console.log(newPost);
       try {
-        await axios.post("/posts/upload", data);
+        await axios.post("https://swapo-backend.herokuapp.com/posts/upload", data);
       } catch (err) { }
     }
     try {
-      await axios.post("/posts/upload", newPost);
+      await axios.post("https://swapo-backend.herokuapp.com/posts/upload", newPost);
       console.log("new Pst");
       stateChanger(data + 1);
     } catch (err) {

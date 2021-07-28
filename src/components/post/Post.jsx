@@ -43,7 +43,7 @@ export default function Post({ post, stateChanger, data }) {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users/${post.userId}`);
+      const res = await axios.get(`https://swapo-backend.herokuapp.com/users/${post.userId}`);
       setUser(res.data);
     };
     fetchUser();
@@ -51,7 +51,7 @@ export default function Post({ post, stateChanger, data }) {
 
   const interestedHandler = () => {
     try {
-      axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
+      axios.put("https://swapo-backend.herokuapp.com/posts/" + post._id + "/like", { userId: currentUser._id });
     } catch (err) { }
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
@@ -61,7 +61,7 @@ export default function Post({ post, stateChanger, data }) {
     const addConversations = async () => {
       try {
         const members = { senderId: currentUser._id, receiverId: user._id };
-        const res = await axios.post("/conversations", members);
+        const res = await axios.post("https://swapo-backend.herokuapp.com/conversations", members);
       } catch (err) {
         console.log(err);
       }
@@ -90,14 +90,14 @@ export default function Post({ post, stateChanger, data }) {
     e.preventDefault();
     console.log("setEditState(false);00");
     axios
-      .put("/posts/" + post._id, { newDesc: desc.current.value })
+      .put("https://swapo-backend.herokuapp.com/posts/" + post._id, { newDesc: desc.current.value })
       .then(() => { });
     setEditState(false);
     stateChanger(data + 1);
   };
   const handleDelete = () => {
     setAnchorEl(null);
-    axios.delete("/posts/" + post._id).then(() => { });
+    axios.delete("https://swapo-backend.herokuapp.com/posts/" + post._id).then(() => { });
     stateChanger(data + 1);
   };
 

@@ -13,7 +13,7 @@ export default function Message({ message, own, currentUser, sender }) {
     console.log('useEffect');
       const getUser = async () => {
       try {
-        const res = await axios(`/users/${sender}`);
+        const res = await axios(`https://swapo-backend.herokuapp.com/users/${sender}`);
         console.log('res.data', res.data);
         setUser(res.data);
       } catch (err) {

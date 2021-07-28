@@ -2,6 +2,7 @@ import './footer.css'
 import Logo from './logo.png'
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 function Footer(){
   const { user } = useContext(AuthContext);
  return(
@@ -9,16 +10,16 @@ function Footer(){
   <div className="footer-left">
     <h3><img src={Logo} alt=''/></h3>
     <p className="footer-links">
-      <a href="/home" style={{'paddingRight':'5'}}> Home  </a>
+      <Link to="/home" style={{'paddingRight':'5'}}> Home  </Link>
       
       {'  '}
-      <a href="/messenger">Messenger</a>
+      <Link to ="/messenger">Messenger</Link>
       {'  '}
-      <a href="/setting">Setting </a>
+      <Link to="/setting">Setting </Link>
       {'  '}
-      <a href="/aboutus">About us</a>
+      <Link to="/about-us">About us</Link>
       {' '}  
-      <a href={`/profile/${user.username}`}>Profile</a>
+      <Link to={`/profile/${user.username}`}>Profile</Link>
     
     </p>
     <p className="footer-company-name">SWAPO © 2021</p>

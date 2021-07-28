@@ -36,7 +36,7 @@ export default function Topbar() {
       userId: user._id,
       index: idx,
     };
-    const res = await axios.put("/notif", objOfUser);
+    const res = await axios.put("https://swapo-backend.herokuapp.com/notif", objOfUser);
     console.log("stat=line34", numOfNotif);
     setNumOfNotif(-1);
     console.log("stat=line34", numOfNotif);
@@ -50,7 +50,7 @@ export default function Topbar() {
   useEffect(() => {
     const getNotif = async () => {
       try {
-        const res = await axios.get("/users/" + user._id);
+        const res = await axios.get("https://swapo-backend.herokuapp.com/users/" + user._id);
         setNotif(res.data.notifications);
       } catch (err) {
         console.log(err);

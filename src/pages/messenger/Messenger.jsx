@@ -20,7 +20,7 @@ export default function Messenger() {
   const scrollRef = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:8900");
+    socket.current = io();
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,
@@ -46,7 +46,7 @@ export default function Messenger() {
   useEffect(() => {
     const getConversations = async () => {
       try {
-        const res = await axios.get("/conversations/" + user._id);
+        const res = await axios.get("https://swapo-backend.herokuapp.com/conversations/" + user._id);
         console.log("Messenger, res", user._id, res);
         setConversations(res.data);
       } catch (err) {
@@ -59,7 +59,7 @@ export default function Messenger() {
   useEffect(() => {
     const getMessages = async () => {
       try {
-        const res = await axios.get("/messages/" + currentChat?._id);
+        const res = await axios.get("https://swapo-backend.herokuapp.com/messages/" + currentChat?._id);
         setMessages(res.data);
       } catch (err) {
         console.log(err);
@@ -88,7 +88,7 @@ export default function Messenger() {
     });
 
     try {
-      const res = await axios.post("/messages", message);
+      const res = await axios.post("https://swapo-backend.herokuapp.com/messages", message);
       setMessages([...messages, res.data]);
       setNewMessage("");
     } catch (err) {

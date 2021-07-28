@@ -13,7 +13,7 @@ export default function Setting() {
   const [userData, setUser] = useState(user);
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/users?username=${userData.username}`);
+      const res = await axios.get(`https://swapo-backend.herokuapp.com/users?username=${userData.username}`);
       setUser(res.data);
     };
     fetchUser();
@@ -42,7 +42,7 @@ export default function Setting() {
       headers: { Authorization: `Bearer ${userData.token}` },
     };
     try {
-      const res = await axios.put("/profile", userObj, config);
+      const res = await axios.put("https://swapo-backend.herokuapp.com/profile", userObj, config);
       console.log("res from setting", res);
       setUser(res.data);
       localStorage.setItem("user", JSON.stringify(res.data));

@@ -15,7 +15,7 @@ export default function Profile() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await axios.get(`/user/profile/${username}`);
+      const res = await axios.get(`https://swapo-backend.herokuapp.com/user/profile/${username}`);
       setUser(res.data[0]);
       console.log("profile/line21", res);
     };
