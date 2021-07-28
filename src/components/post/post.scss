@@ -1,14 +1,14 @@
 .postContainer {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 0.5%;
   // box-shadow: 0 0 20px rgba(0,0,0,.3);
 }
 
 .peopleAtDivFromPost {
-  color: #B1B1B1;
-    margin-top: 55px;
-    // margin-left: 8px;
-    font-size: 14px;
+  color: #b1b1b1;
+  margin-top: 55px;
+  // margin-left: 8px;
+  font-size: 14px;
 }
 .mmmmmmmmmm {
   display: flex;
@@ -28,210 +28,200 @@
   padding: 6px;
 }
 
-.ooooooooo{
+.ooooooooo {
   margin: 22px;
 }
-
 
 .chatSpan {
   position: relative;
   left: 10px;
 }
 
+.moreVertDivFromPost {
+  height: 35px;
+}
 
-.moreVertDivFromPost{
-  height: 35px;}
-
-.usernameDivFromPost{
+.usernameDivFromPost {
   width: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3px;
 }
-.profilePictureDivFromPost{
+.profilePictureDivFromPost {
   height: 233px;
 }
 
-.usernameDivFromPost span{
+.usernameDivFromPost span {
   display: inline;
-
 }
 
-.aaaaaaaaaaaaaa{
-  height: 139px;}
+.aaaaaaaaaaaaaa {
+  height: 139px;
+}
 
-  .postContainer {
-    // margin: 3% 0;
-    height: 223px;
-          display: grid;
+.postContainer {
+  // margin: 3% 0;
+  height: 223px;
+  display: grid;
   gap: 0;
   grid-template-columns: 1fr 2fr;
+}
+.postContainerTest:nth-child(even) {
+  // .linkUserName {
+  //   font-weight: 700;
+  //   width: 95px;
+  //   height: -12px;
+  //   margin-top: 12px;
+  // }
+
+  .peopleAtDivFromPost {
+    margin-top: 48px;
   }
-  .postContainerTest:nth-child(even) {
-    // .linkUserName {
-    //   font-weight: 700;
-    //   width: 95px;
-    //   height: -12px;
-    //   margin-top: 12px;
-    // }
 
-    .peopleAtDivFromPost{
-      margin-top: 48px;
-
-    }
-
-    .uuuuuuuuuuuuu{
-          position: relative;
+  .uuuuuuuuuuuuu {
+    position: relative;
     top: -14px;
-    }
+  }
 
-
-    .moreVertDivFromPost{
-      float: right;
+  .moreVertDivFromPost {
+    float: right;
     margin-right: 15px;
     margin-top: -13px;
-    }
-    .postDescDivFromPost{
-  width: 172px;
-}
-    .chatSpan{
-      margin-top: -5px;
-    }
-    .secPostContainer{
-      margin: 2% 0;
-      // margin: 1%;
-      margin-left: -7%;    }
-    .usernameDivFromPost{
-
-    }
-    .profilePictureDivFromPost img{
-      width: 293px;
-      height: 199px;
-      object-fit: cover;
-      clip-path: polygon(0% -700%, 0% 100%, 100% 100%)
-    }
-    .postContainer {
-
-    }
-
-
-
-    .createdAtDivFromPost {
-      float: left;
-      color: #B1B1B1; 
-    }
-    .moreVertDivFromPost{
-      float: right;
-    }
-    .postDescDivFromPost{
-      display: block;
-      font-size: 16px;
-      color: #006E89;
-    }
-      .linkUserName:-webkit-any-link {
-        color: -webkit-link;
-        cursor: pointer;
-        text-decoration: none;
-        color:#006E89;
-        float: left;
-      }
-      .profilePictureDivFromPost {
-        display: inline-block;
-        position: relative;
-        width: 253px;
-        height: 223px;
-        background:#006E89;
-        box-sizing: border-box;
-        clip-path: polygon(0% -700%, 0% 100%, 100% 100%)
-      }
-      .profilePictureDivFromPost img {
-        position: absolute;
-        top: 0px;
-        left: -1px;
-        width: 249px;
-        height: 223px;
-        clip-path: polygon(0% -700%, 0% 100%, 100% 100%)
-      }
   }
-  .postContainerTest:nth-child(odd) {
+  .postDescDivFromPost {
+    width: 172px;
+  }
+  .chatSpan {
+    margin-top: -5px;
+  }
+  .secPostContainer {
+    margin: 2% 0;
+    // margin: 1%;
+    margin-left: -7%;
+  }
+  .usernameDivFromPost {
+  }
+  .profilePictureDivFromPost img {
+    width: 293px;
+    height: 199px;
+    object-fit: cover;
+    clip-path: polygon(0% -700%, 0% 100%, 100% 100%);
+  }
+  .postContainer {
+  }
 
-    .linkUserName {
-      font-weight: 700;
-      width: 95px;
-      height: -12px;
-      margin-top: 12px;
-    }
-
-
-    .usernameDivFromPost{
-      // padding: 2%;
-      margin-top: 10px;
-          }
-    .postContainer{
-
-      display:flex;
-      flex-direction:row-reverse;
-     
-    }
-
-    .postContainer {
-
-}
-
-    .secPostContainer{
-      display: inline-block;
-      }
-    .imagePostWH{
-      display: inline-block;
-    }
-    .createdAtDivFromPost {
-      float: right;
-      color: #B1B1B1;
-      margin-top: 10px;
-      margin-left: 8px;    }
-    .moreVertDivFromPost{
-      float: right;
-    }
-    .dateAndVert{ float: left; 
-      margin-left: -12px;
-    }
-    .postDescDivFromPost{
-      color: #006E89;
-      display: block;
-      font-size: 16px;
-      /* width: 108%; */
-      // margin-left: 34px;
-      padding: 0% 0;
-      }
-      .linkUserName:-webkit-any-link {
-        color: -webkit-link;
-        cursor: pointer;
-        text-decoration: none;
-        color:#006E89;
-        // font-size: 25px;
-        font-weight:900;
-        float: left;
-        // margin-top: -8px;
-      }
-
+  .createdAtDivFromPost {
+    float: left;
+    color: #b1b1b1;
+  }
+  .moreVertDivFromPost {
+    float: right;
+  }
+  .postDescDivFromPost {
+    display: block;
+    font-size: 16px;
+    color: #006e89;
+  }
+  .linkUserName:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+    color: #006e89;
+    float: left;
   }
   .profilePictureDivFromPost {
     display: inline-block;
     position: relative;
     width: 253px;
     height: 223px;
-    background: #006E89;
+    background: #006e89;
     box-sizing: border-box;
-    clip-path: polygon(0% 100%, 100% 100%,100% 0%,12% 0%);
+    clip-path: polygon(0% -700%, 0% 100%, 100% 100%);
   }
   .profilePictureDivFromPost img {
     position: absolute;
-    top: -2px;
-     right: -2px;
-     width: 249px;
-     height: 225px;
-     clip-path: polygon(0% 100%, 100% 100%,100% 0%,12% 0%);
+    top: 0px;
+    left: -1px;
+    width: 249px;
+    height: 223px;
+    clip-path: polygon(0% -700%, 0% 100%, 100% 100%);
   }
+}
+.postContainerTest:nth-child(odd) {
+  .linkUserName {
+    font-weight: 700;
+    width: 95px;
+    height: -12px;
+    margin-top: 12px;
+  }
+
+  .usernameDivFromPost {
+    // padding: 2%;
+    margin-top: 10px;
+  }
+  .postContainer {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .postContainer {
+  }
+
+  .secPostContainer {
+    display: inline-block;
+  }
+  .imagePostWH {
+    display: inline-block;
+  }
+  .createdAtDivFromPost {
+    float: right;
+    color: #b1b1b1;
+    margin-top: 10px;
+    margin-left: 8px;
+  }
+  .moreVertDivFromPost {
+    float: right;
+  }
+  .dateAndVert {
+    float: left;
+    margin-left: -12px;
+  }
+  .postDescDivFromPost {
+    color: #006e89;
+    display: block;
+    font-size: 16px;
+    /* width: 108%; */
+    // margin-left: 34px;
+    padding: 0% 0;
+  }
+  .linkUserName:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+    color: #006e89;
+    // font-size: 25px;
+    font-weight: 900;
+    float: left;
+    // margin-top: -8px;
+  }
+}
+.profilePictureDivFromPost {
+  display: inline-block;
+  position: relative;
+  width: 253px;
+  height: 223px;
+  background: #006e89;
+  box-sizing: border-box;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 12% 0%);
+}
+.profilePictureDivFromPost img {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 249px;
+  height: 225px;
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 12% 0%);
+}
 .MuiSvgIcon-root {
   fill: currentColor;
   width: 1em;
@@ -245,7 +235,7 @@
 .profilePictureDivFromPost:after {
   content: "";
   position: absolute;
-    top: -10%;
+  top: -10%;
   left: -60%;
   width: 20%;
   height: 200%;
@@ -257,7 +247,7 @@
     rgba(255, 255, 255, 0.13) 0%,
     rgba(255, 255, 255, 0.13) 77%,
     rgba(255, 255, 255, 0.5) 92%,
-    rgba(255, 255, 255, 0.0) 100%
+    rgba(255, 255, 255, 0) 100%
   );
 }
 /* Hover state - trigger effect */

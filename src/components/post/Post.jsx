@@ -228,7 +228,7 @@ export default function Post({ post, stateChanger, data }) {
             </div>
           </div>
           <span>
-            <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal style={showModal ? { opacity: 1 } : null}  show={showModal} onHide={handleCloseModal}>
               <Modal.Header closeButton>
                 <Modal.Title style={{ color: "#006E89" }}>
                   Edit Post
