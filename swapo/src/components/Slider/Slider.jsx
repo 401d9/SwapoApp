@@ -1,10 +1,10 @@
 import './slider.css'
 import { Carousel } from "react-bootstrap"
-import How from './How.png'
+import How from './How1.png'
 function Slider() {
     return (
         <>
-            <Carousel fade style={{ 'backgroundColor': '#006E89'}}>
+            <Carousel fade style={{ 'backgroundColor': '#006E89','height':400}}>
                <Carousel.Item style={{ 'height':350}} >
 
                     <img

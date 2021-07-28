@@ -8,13 +8,17 @@
   box-sizing:border-box;
 
 }
-
+.card1{
+ height:60vh
+}
 .container-fluid{
   color:#F9F9F9;
 width:100%;
 background-color: #006E89;
 height: 100Vh;
+
 }
+
 /* 
 .card2 {
   margin: 0px 40px;
@@ -25,16 +29,15 @@ height: 100Vh;
 } */
 
 .card2 {
-  width: 67% !important;
+padding:30px !important;
+  width: 60% !important;
   margin: 0px 80px;
+  background-color: #b1b1b140
 }
 
 .image {
   width: 360px;
   height: 280px;
-}
-.border-line {
-  border-right: 1px solid #EEEEEE;
 }
 .facebook {
   background-color: #3B5998;
@@ -47,7 +50,7 @@ height: 100Vh;
   cursor: pointer;
 }
 .twitter {
-  background-color: #DB4437;
+  background-color: #FFA34C;
   color: #fff;
   font-size: 18px;
   padding-top: 3px;
@@ -94,7 +97,7 @@ height: 100Vh;
 }
 .loginInput
  {
-  padding: 10px 12px 10px 12px;
+  padding: 5px;
   border: 1px solid lightgrey;
   border-radius: 2px;
   margin-bottom: 5px;
@@ -147,6 +150,8 @@ height: 100Vh;
   .card2 {
     border-top: 1px solid #EEEEEE !important;
     margin: 0px 15px;
+    display: inline;
+  
   }
 }
 .btn btn-blue text-center {
@@ -162,16 +167,31 @@ height: 100Vh;
   width: 169px;
   margin-bottom: 20px;
   /* height: 100px; */
-  margin-top: 20px;
+  margin-top: -20px;
   /* margin-left: 310px; */
 }
 .btn .btn-blue {
   background-color: #FFA34C;
 }
-.card2 {
-  width: 75%;
+.btn:hover{
+  background-color: #82E5FF !important
 }
 
 .text-danger {
-  color:#FFA34C
+  color:#FFA34C !important
+}
+.row{
+  display: flex; 
+  /* flex-wrap: wrap !important;
+  margin-right: -15px !important;
+  margin-left: -15px !important;
+
+  /* flex-direction: row !important; */
+  /* display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	align-content: flex-start; */
+  
 }

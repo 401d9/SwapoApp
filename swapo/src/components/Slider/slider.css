@@ -28,7 +28,8 @@
 }
 .slider-header{
     text-shadow: 2px 2px 3px black;
-    color:#82E5FF
+    color:#82E5FF;
+    margin-top:-33px
 }
 .slider-p{
     /* font-family: sans-serif;
