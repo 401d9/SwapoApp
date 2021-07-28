@@ -204,6 +204,9 @@ export default function Post({ post, stateChanger, data }) {
             </div>
           </div>
 
+          <div className="peopleAtDivFromPost"  >
+            {like} people interested{" "}
+          </div>
 
 
 
