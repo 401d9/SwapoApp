@@ -145,7 +145,7 @@ export default function Register() {
                   </div>
                 </div>
                 <div className="row mb-3 px-3">
-                  <Link to="">
+               
                     {" "}
                     <button
                       type="submit"
@@ -153,7 +153,7 @@ export default function Register() {
                     >
                       Sign up
                     </button>
-                  </Link>{" "}
+                 
                 </div>
                 <div className="row mb-4 px-3">
                   {" "}

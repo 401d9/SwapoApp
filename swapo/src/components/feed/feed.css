@@ -1,0 +1,13 @@
+/* .feed{
+    flex:5.5
+}
+
+.feedWrapper{
+    padding: 20px;
+} */
+
+.postContainerTest{
+    box-shadow: 0 0 20px rgb(0 0 0 / 30%);
+    margin: 28px 0;
+    border: 0.3px solid #9d9d9da8;
+}

@@ -7,17 +7,26 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { useHistory } from "react-router";
 import QuestionAnswerOutlinedIcon from "@material-ui/icons/QuestionAnswerOutlined";
-import IconButton from "@material-ui/core/IconButton";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import PlusOneOutlinedIcon from "@material-ui/icons/PlusOneOutlined";
+import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
+import { Modal } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+
+
+
+
+
 const ITEM_HEIGHT = 48;
 
 const scrollBarStyle = {
-  height: "107px",
-  width: "633px",
-  margin: "-0.5%",
+  padding: "10px 0",
+  height: "120px",
+  width: "639px",
+  margin: "-7% 0",
+  marginTop: '20px',
 };
 
 export default function Post({ post, stateChanger, data }) {
@@ -43,7 +52,7 @@ export default function Post({ post, stateChanger, data }) {
   const interestedHandler = () => {
     try {
       axios.put("/posts/" + post._id + "/like", { userId: currentUser._id });
-    } catch (err) {}
+    } catch (err) { }
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
@@ -82,17 +91,74 @@ export default function Post({ post, stateChanger, data }) {
     console.log("setEditState(false);00");
     axios
       .put("/posts/" + post._id, { newDesc: desc.current.value })
-      .then(() => {});
+      .then(() => { });
     setEditState(false);
     stateChanger(data + 1);
   };
   const handleDelete = () => {
     setAnchorEl(null);
-    axios.delete("/posts/" + post._id).then(() => {});
+    axios.delete("/posts/" + post._id).then(() => { });
     stateChanger(data + 1);
   };
+
+
+  const [showModal, setShow] = useState(false);
+
+  const handleCloseModal = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
   return (
-    <div>
+    <div className="pppppppppp">
+
+      <div className='mmmmmmmmmm'>
+
+        <span >
+          {" "}
+          <PlusOneOutlinedIcon onClick={interestedHandler} style={{ cursor: "pointer", color: "#006E89", border: '2px solid', borderRadius: "50%", fontSize: '38px', fontWeight: "700", padding: "4px" }} />{" "}
+
+        </span>
+
+        {/* <span > */}
+        {currentUser._id !== post.userId && (
+          <span>
+
+            <QuestionAnswerOutlinedIcon
+              style={{ cursor: "pointer", color: "#006E89", border: '2px solid', borderRadius: "50%", fontSize: '38px', fontWeight: "700", padding: "4px" }}
+              onClick={handleContact}
+            />
+          </span>
+
+        )}
+        {/* </span> */}
+
+        {/* <span> */}
+        {currentUser._id === post.userId && (
+          <span>
+
+            <EditIcon
+              onClick={handleShow} style={{ cursor: "pointer", color: "#006E89", border: '2px solid', borderRadius: "50%", fontSize: '38px', fontWeight: "700", padding: "4px" }}
+            />
+
+          </span>
+
+
+        )}
+        {/* </span> */}
+
+
+        {/* <span> */}
+        {currentUser._id === post.userId && (
+          <span>
+            <DeleteOutlineIcon
+              onClick={() => handleDelete(post._id)} style={{ cursor: "pointer", color: "#f0294a", border: '2px solid', borderRadius: "50%", fontSize: '38px', fontWeight: "700", padding: "4px" }}
+            />
+          </span>
+
+        )}
+        {/* </span> */}
+      </div>
+
       <div className="postContainer">
         <div className="imagePostWH">
           <div className="profilePictureDivFromPost">
@@ -103,96 +169,91 @@ export default function Post({ post, stateChanger, data }) {
         </div>
 
         <div className="secPostContainer">
-          <div></div>
+
+
+          <div className="nameSpan">
+            <Link className="linkUserName" style={{
+              fontWeight: "900",
+              fontSize: "24px",
+              marginTop: "3px",
+              width: "100%"
+            }} to={`/profile/${user.username}`}>
+              {user.username}
+            </Link>
+          </div>
 
           <div className="dateAndVert">
             <span className="createdAtDivFromPost">
               {format(post.createdAt)}
             </span>
 
-            <div className="moreVertDivFromPost">
-              {currentUser._id === post.userId && (
-                <div className="postTopRight">
-                  <IconButton
-                    aria-label="more"
-                    aria-controls="long-menu"
-                    aria-haspopup="true"
-                    onClick={handleClick}
-                  >
-                    <MoreVertIcon />
-                  </IconButton>
-                  <Menu
-                    id="long-menu"
-                    anchorEl={anchorEl}
-                    keepMounted
-                    open={open}
-                    onClose={handleClose}
-                    PaperProps={{
-                      style: {
-                        maxHeight: ITEM_HEIGHT * 4.5,
-                        width: "20ch",
-                      },
-                    }}
-                  >
-                    <MenuItem key="edit" onClick={() => handleEdit(post._id)}>
-                      Edit
-                    </MenuItem>
-                    <MenuItem
-                      key="delete"
-                      onClick={() => handleDelete(post._id)}
-                    >
-                      Delete
-                    </MenuItem>
-                  </Menu>
-                </div>
-              )}
+
+          </div>
+
+          <div className='aaaaaaaaaaaaaa'>
+
+            <div className="postDescDivFromPost">
+              <ScrollBars
+                className="scrolldiv"
+                horizontal
+                autoHide={false}
+                style={scrollBarStyle}
+              >
+                {post?.desc}
+              </ScrollBars>
             </div>
           </div>
 
-          <div className="postDescDivFromPost">
-            <ScrollBars
-              className="scrolldiv"
-              horizontal
-              autoHide={false}
-              style={scrollBarStyle}
-            >
-              {post?.desc}
-            </ScrollBars>
-            {editState && (
-              <form onSubmit={handleSubmit}>
-                <input
-                  placeholder="Edit your post here"
-                  className="shareInput"
-                  ref={desc}
-                />
-                <button>Update</button>
-              </form>
-            )}
-          </div>
 
-          <div className="usernameDivFromPost">
-            <Link className="linkUserName" to={`/profile/${user.username}`}>
-              {user.username}
-            </Link>
 
-            {currentUser._id !== post.userId && (
-              <QuestionAnswerOutlinedIcon
-                style={{ cursor: "pointer", color: "#FFA34C" }}
-                onClick={handleContact}
-              />
-            )}
-            <div className="postBottom">
-              <div className="postBottomLeft">
-                {" "}
-                <PlusOneOutlinedIcon onClick={interestedHandler} />{" "}
-                <span className="postLikeCounter">
-                  {like} people interested in it{" "}
-                </span>
-              </div>
-            </div>
-          </div>
+
+
+
+
+          <span>
+            <Modal show={showModal} onHide={handleCloseModal} >
+              <Modal.Header closeButton>
+                <Modal.Title style={{ color: '#006E89' }}>Edit Post</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+
+                <p style={{ color: '#006E89' }}>{post.desc}</p>
+
+                <form onSubmit={handleSubmit}>
+                  <Form.Control
+                    as="textarea"
+                    rows={3}
+                    ref={desc}
+                    placeholder="Edit your post here"
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="10"
+                  />
+
+                  <br></br>
+
+                  <Button
+                    type="submit"
+                    as="input"
+                    value="Update"
+                    style={{ backgroundColor: "#FFA34C", border: "#FFA34C", float: "right" }}
+                  />{" "}
+                </form>
+
+              </Modal.Body>
+            </Modal>
+
+
+
+          </span>
+
         </div>
       </div>
+
+
+
+
     </div>
   );
 }
