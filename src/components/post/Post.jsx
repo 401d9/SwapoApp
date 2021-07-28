@@ -8,27 +8,20 @@ import { AuthContext } from "../../context/AuthContext";
 import { useHistory } from "react-router";
 import QuestionAnswerOutlinedIcon from "@material-ui/icons/QuestionAnswerOutlined";
 import PlusOneOutlinedIcon from "@material-ui/icons/PlusOneOutlined";
-import MoreVertOutlinedIcon from '@material-ui/icons/MoreVertOutlined';
 import { Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
-
-
-
-
-
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 const ITEM_HEIGHT = 48;
-
 const scrollBarStyle = {
-  padding: "10px 0",
-  height: "120px",
-  width: "639px",
-  margin: "-7% 0",
-  marginTop: '20px',
+  // padding: "10px 0",
+  height: "100px",
+  width: "653px",
+  // margin: "-7% 0",
+  marginTop: "20px",
+  // marginBottom:'20px'
 };
-
 export default function Post({ post, stateChanger, data }) {
   const [like, setLike] = useState(post.likes.length);
   const [isLiked, setIsLiked] = useState(false);
@@ -36,11 +29,9 @@ export default function Post({ post, stateChanger, data }) {
   const [editState, setEditState] = useState(false);
   const { user: currentUser } = useContext(AuthContext);
   const history = useHistory();
-
   useEffect(() => {
     setIsLiked(post.likes.includes(currentUser._id));
   }, [currentUser._id, post.likes]);
-
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`https://swapo-backend.herokuapp.com/users/${post.userId}`);
@@ -48,15 +39,13 @@ export default function Post({ post, stateChanger, data }) {
     };
     fetchUser();
   }, [post.userId, editState]);
-
   const interestedHandler = () => {
     try {
       axios.put("https://swapo-backend.herokuapp.com/posts/" + post._id + "/like", { userId: currentUser._id });
-    } catch (err) { }
+    } catch (err) {}
     setLike(isLiked ? like - 1 : like + 1);
     setIsLiked(!isLiked);
   };
-
   const handleContact = () => {
     const addConversations = async () => {
       try {
@@ -70,18 +59,14 @@ export default function Post({ post, stateChanger, data }) {
     history.push("/messenger");
   };
   const desc = useRef();
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   const handleEdit = () => {
     setAnchorEl(null);
     setEditState(true);
@@ -91,107 +76,146 @@ export default function Post({ post, stateChanger, data }) {
     console.log("setEditState(false);00");
     axios
       .put("https://swapo-backend.herokuapp.com/posts/" + post._id, { newDesc: desc.current.value })
-      .then(() => { });
+      .then(() => {});
     setEditState(false);
     stateChanger(data + 1);
   };
   const handleDelete = () => {
     setAnchorEl(null);
-    axios.delete("https://swapo-backend.herokuapp.com/posts/" + post._id).then(() => { });
+    axios.delete("https://swapo-backend.herokuapp.com/posts/" + post._id).then(() => {});
     stateChanger(data + 1);
   };
-
-
   const [showModal, setShow] = useState(false);
-
   const handleCloseModal = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
   return (
     <div className="pppppppppp">
-
-      <div className='mmmmmmmmmm'>
-
-        <span >
+      <div className="mmmmmmmmmm">
+        <span title="Interested">
           {" "}
-          <PlusOneOutlinedIcon onClick={interestedHandler} style={{ cursor: "pointer", color: "#006E89", border: '2px solid', borderRadius: "50%", fontSize: '38px', fontWeight: "700", padding: "4px" }} />{" "}
-
+          <PlusOneOutlinedIcon
+            onClick={interestedHandler}
+            style={{
+              cursor: "pointer",
+              color: "#006E89",
+              border: "2px solid",
+              borderRadius: "50%",
+              fontSize: "38px",
+              fontWeight: "700",
+              padding: "4px",
+            }}
+          />{" "}
         </span>
-
         {/* <span > */}
         {currentUser._id !== post.userId && (
-          <span>
-
+          <span title="Contact">
             <QuestionAnswerOutlinedIcon
-              style={{ cursor: "pointer", color: "#006E89", border: '2px solid', borderRadius: "50%", fontSize: '38px', fontWeight: "700", padding: "4px" }}
+              style={{
+                cursor: "pointer",
+                color: "#006E89",
+                border: "2px solid",
+                borderRadius: "50%",
+                fontSize: "38px",
+                fontWeight: "700",
+                padding: "4px",
+              }}
               onClick={handleContact}
             />
           </span>
-
         )}
         {/* </span> */}
-
         {/* <span> */}
         {currentUser._id === post.userId && (
-          <span>
-
+          <span title="Edit">
             <EditIcon
-              onClick={handleShow} style={{ cursor: "pointer", color: "#006E89", border: '2px solid', borderRadius: "50%", fontSize: '38px', fontWeight: "700", padding: "4px" }}
+              onClick={handleShow}
+              style={{
+                cursor: "pointer",
+                color: "#006E89",
+                border: "2px solid",
+                borderRadius: "50%",
+                fontSize: "38px",
+                fontWeight: "700",
+                padding: "4px",
+              }}
             />
-
           </span>
-
-
         )}
         {/* </span> */}
-
-
         {/* <span> */}
         {currentUser._id === post.userId && (
-          <span>
+          <span title="Delete">
             <DeleteOutlineIcon
-              onClick={() => handleDelete(post._id)} style={{ cursor: "pointer", color: "#f0294a", border: '2px solid', borderRadius: "50%", fontSize: '38px', fontWeight: "700", padding: "4px" }}
+              onClick={() => handleDelete(post._id)}
+              style={{
+                cursor: "pointer",
+                color: "#f0294a",
+                border: "2px solid",
+                borderRadius: "50%",
+                fontSize: "38px",
+                fontWeight: "700",
+                padding: "4px",
+              }}
             />
           </span>
-
         )}
         {/* </span> */}
       </div>
-
       <div className="postContainer">
         <div className="imagePostWH">
-          <div className="profilePictureDivFromPost">
+          <div title={user.username} className="profilePictureDivFromPost">
             <Link to={`/profile/${user.username}`}>
               <img src={user.profilePicture} alt={user.username} />
             </Link>
           </div>
         </div>
-
         <div className="secPostContainer">
-
-
-          <div className="nameSpan">
-            <Link className="linkUserName" style={{
-              fontWeight: "900",
-              fontSize: "24px",
-              marginTop: "3px",
-              width: "100%"
-            }} to={`/profile/${user.username}`}>
+          <div title="Show profile" className="nameSpan">
+            <Link
+              className="linkUserName"
+              style={{
+                fontWeight: "900",
+                fontSize: "24px",
+                marginTop: "3px",
+                width: "100%",
+              }}
+              to={`/profile/${user.username}`}
+            >
               {user.username}
             </Link>
           </div>
-
           <div className="dateAndVert">
-            <span className="createdAtDivFromPost">
+            <span
+              style={{
+                backgroundColor: "#ddd",
+                borderRadius: "20px",
+                fontSize: "12px",
+                /* margin-right: 8px, */
+                padding: "4px 10px",
+                marginTop: "9px",
+                width: "-moz-fit-content",
+                width: "fit-content",
+                marginRight: "2px",
+              }}
+            >
               {format(post.createdAt)}
             </span>
-
-
+            <span
+              style={{
+                backgroundColor: "#ddd",
+                borderRadius: "20px",
+                fontSize: "12px",
+                /* margin-right: 8px, */
+                padding: "4px 10px",
+                marginTop: "9px",
+                width: "-moz-fit-content",
+                width: "fit-content",
+              }}
+            >
+              {like} people interested{" "}
+            </span>
           </div>
-
-          <div className='aaaaaaaaaaaaaa'>
-
+          <div className="aaaaaaaaaaaaaa">
             <div className="postDescDivFromPost">
               <ScrollBars
                 className="scrolldiv"
@@ -203,25 +227,15 @@ export default function Post({ post, stateChanger, data }) {
               </ScrollBars>
             </div>
           </div>
-
-          <div className="peopleAtDivFromPost"  >
-            {like} people interested{" "}
-          </div>
-
-
-
-
-
-
           <span>
-            <Modal show={showModal} onHide={handleCloseModal} >
+            <Modal show={showModal} onHide={handleCloseModal}>
               <Modal.Header closeButton>
-                <Modal.Title style={{ color: '#006E89' }}>Edit Post</Modal.Title>
+                <Modal.Title style={{ color: "#006E89" }}>
+                  Edit Post
+                </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-
-                <p style={{ color: '#006E89' }}>{post.desc}</p>
-
+                <p style={{ color: "#006E89" }}>{post.desc}</p>
                 <form onSubmit={handleSubmit}>
                   <Form.Control
                     as="textarea"
@@ -233,30 +247,23 @@ export default function Post({ post, stateChanger, data }) {
                     cols="30"
                     rows="10"
                   />
-
                   <br></br>
-
                   <Button
                     type="submit"
                     as="input"
                     value="Update"
-                    style={{ backgroundColor: "#FFA34C", border: "#FFA34C", float: "right" }}
+                    style={{
+                      backgroundColor: "#FFA34C",
+                      border: "#FFA34C",
+                      float: "right",
+                    }}
                   />{" "}
                 </form>
-
               </Modal.Body>
             </Modal>
-
-
-
           </span>
-
         </div>
       </div>
-
-
-
-
     </div>
   );
 }
