@@ -1,3 +1,5 @@
+
+
 import Header from "../../components/header/Header";
 import Feed from "../../components/feed/Feed";
 import Footer from "../../components/footer/Footer";
@@ -21,3 +23,11 @@ export default function Home() {
     </>
   );
 }
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@ export default function Share({ stateChanger, data }) {
       console.log(newPost);
       try {
         await axios.post("/posts/upload", data);
-      } catch (err) {}
+      } catch (err) { }
     }
     try {
       await axios.post("/posts/upload", newPost);
@@ -39,6 +39,8 @@ export default function Share({ stateChanger, data }) {
   };
 
   return (
+
+
     <div className="share">
       <form
         className="shareBottom"
