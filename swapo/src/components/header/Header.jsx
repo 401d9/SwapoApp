@@ -139,7 +139,7 @@ export default function Topbar() {
               marginRight: "3%",
             }}
           />
-          <Link to="/aboutus">
+          <Link to="/about-us">
             <InfoTwoToneIcon
               style={{
                 fontSize: "33px",
