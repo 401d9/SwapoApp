@@ -79,7 +79,7 @@ export default function Setting() {
               <Form.Control
                 ref={profilePicture}
                 type="link"
-                placeholder={userData.profileCover}
+                placeholder={userData.profilePicture}
                 size="sm"
               />
               <br></br>
