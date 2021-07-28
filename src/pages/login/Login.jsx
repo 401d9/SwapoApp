@@ -28,50 +28,6 @@ export default function Login() {
   };
 
   return (
-    /*     <div className="login">
-      <div className="loginWrapper">
-        <div className="loginLeft">
-          <h3 className="loginLogo">Swapo</h3>
-          <span className="loginDesc">
-            Web app that connects many service providers and those who give their services to each other by swap their knowledge and expertise.
-          </span>
-        </div>
-        <div className="loginRight">
-          <form className="loginBox" onSubmit={handleClick}>
-            <input
-              placeholder="Username"
-              type="text"
-              required
-              className="loginInput"
-              ref={username}
-            />
-            <input
-              placeholder="Password"
-              type="password"
-              required
-              minLength="6"
-              className="loginInput"
-              ref={password}
-            />
-            <button className="loginButton" type="submit" disabled={isFetching}>
-              {isFetching ? (
-                <CircularProgress color="white" size="20px" />
-              ) : (
-                "Log In"
-              )}
-            </button>
-            <button onClick={handleCreate} className="loginRegisterButton">
-              {isFetching ? (
-                <CircularProgress color="white" size="20px" />
-              ) : (
-                "Create a New Account"
-              )}
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  ); */
     <div className="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
 
      <div className="row-main">

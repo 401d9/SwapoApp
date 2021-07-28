@@ -4,7 +4,7 @@ export const loginCall = async (userCredential, dispatch) => {
   dispatch({ type: "LOGIN_START" });
   try {
     console.log('userCredential', userCredential);
-    const res = await axios.post("/signin", {}, {
+    const res = await axios.post("https://swapo-backend.herokuapp.com/signin", {}, {
       auth: {
         username: userCredential.username,
         password: userCredential.password,

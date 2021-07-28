@@ -23,7 +23,7 @@ export default function Register() {
         email: email.current.value,
       };
       try {
-        await axios.post("/signup", user);
+        await axios.post("https://swapo-backend.herokuapp.com/signup", user);
         history.push("/login");
         console.log("user", user);
       } catch (err) {

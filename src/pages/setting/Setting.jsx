@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 
 export default function Setting() {
   const { user } = useContext(AuthContext);
-  const [userData, setUser] = useState({});
+  const [userData, setUser] = useState(user);
   useEffect(() => {
     const fetchUser = async () => {
       const res = await axios.get(`/users?username=${userData.username}`);
