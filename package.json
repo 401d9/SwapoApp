@@ -47,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://swapo-backend.herokuapp.com/"
+  "proxy": "https://swapo-backend.herokuapp.com"
 }
