@@ -1,5 +1,3 @@
-
-
 /* *, *:before, *:after {
   box-sizing: inherit;
 } */
@@ -9,30 +7,30 @@
 }
 
 .u-flex-center {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
 .u-clearfix:before,
 .u-clearfix:after {
-    content: " ";
-    display: table;
+  content: " ";
+  display: table;
 }
 
 .u-clearfix:after {
-    clear: both;
+  clear: both;
 }
 
 .u-clearfix {
-    *zoom: 1;
+  *zoom: 1;
 }
 
 .container-profile {
-  box-shadow: 0 0 50px rgba(0,0,0,.3);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   margin: 2% 15%;
   overflow: hidden;
 }
@@ -42,42 +40,41 @@
 }
 
 .header-pic {
-
   left: 0;
-  width:1300px;
+  width: 1300px;
   position: absolute;
   top: 0;
   z-index: -1;
   height: auto;
   -webkit-animation: zoomEffect 35s infinite;
-          animation: zoomEffect 35s infinite;
+  animation: zoomEffect 35s infinite;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-timing-function: linear;
   -webkit-animation-direction: alternate;
-          animation-direction: alternate;
+  animation-direction: alternate;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 @-webkit-keyframes zoomEffect {
   0% {
     -webkit-transform: scale(1) translateX(0);
-            transform: scale(1) translateX(0);
+    transform: scale(1) translateX(0);
   }
   100% {
     -webkit-transform: scale(1.2) translateX(-360px) translateY(-80px);
-            transform: scale(1.2) translateX(-360px) translateY(-80px);
+    transform: scale(1.2) translateX(-360px) translateY(-80px);
   }
 }
 
 @keyframes zoomEffect {
   0% {
     -webkit-transform: scale(1) translateX(0) translateY(0);
-            transform: scale(1) translateX(0) translateY(0);
+    transform: scale(1) translateX(0) translateY(0);
   }
   100% {
     -webkit-transform: scale(1.2) translateX(-360px) translateY(-80px);
-            transform: scale(1.2) translateX(-360px) translateY(-80px);
+    transform: scale(1.2) translateX(-360px) translateY(-80px);
   }
 }
 
@@ -85,7 +82,6 @@
   color: #fff;
   padding: 15px;
   height: 300px;
-
 }
 
 .header > svg {
@@ -93,26 +89,25 @@
 }
 
 .main-heading {
-  color: #fff;  
+  color: #fff;
   font-size: 26px;
   font-weight: 300;
   margin-bottom: 12px;
 
-  font-size:35;
+  font-size: 35;
   font-weight: 500;
   /* text-align: center; */
-  text-shadow: rgba(0,0,0,0.55) 1px 1px 5px
-
+  text-shadow: rgba(0, 0, 0, 0.55) 1px 1px 5px;
 }
 
 .tag {
-  background-color: rgba(255, 255, 255, .35);
+  background-color: rgba(255, 255, 255, 0.35);
   border-radius: 20px;
   font-size: 11px;
   margin-right: 8px;
   padding: 4px 10px;
   text-transform: uppercase;
-  text-shadow: rgba(0,0,0,0.55) 1px 1px 5px
+  text-shadow: rgba(0, 0, 0, 0.55) 1px 1px 5px;
 }
 
 .stats {
@@ -124,7 +119,7 @@
   font-size: 12px;
   margin-right: 20px;
   text-transform: uppercase;
-  text-shadow: rgba(0,0,0,0.55) 1px 1px 5px
+  text-shadow: rgba(0, 0, 0, 0.55) 1px 1px 5px;
 }
 
 .stat-number {
@@ -156,19 +151,17 @@
   width: 170px;
   height: 170px;
   border-radius: 50%;
-  box-shadow: 5px 10px 75px rgba(0, 0, 0, .4);
+  box-shadow: 5px 10px 75px rgba(0, 0, 0, 0.4);
   float: left;
   margin: -90px 0 20px;
   position: relative;
   z-index: 2;
- 
- 
 }
 
 .body-action-button {
   background-color: #383838;
   border-radius: 50%;
-  box-shadow: 1px 2px 12px rgba(0,0,0,.4);
+  box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   height: 40px;
   position: absolute;
@@ -179,14 +172,14 @@
 
 .body-stats {
   display: inline-block;
-  font-size:2em;
+  font-size: 2em;
   font-weight: 700;
   float: left;
-  margin: 0px 0  0 30px;
+  margin: 0px 0 0 30px;
   position: relative;
   text-transform: uppercase;
-  width:50%;
-  text-shadow: rgba(0,0,0,0.55) 1px 1px 5px
+  width: 50%;
+  text-shadow: rgba(0, 0, 0, 0.55) 1px 1px 5px;
 }
 
 .body-stats > span {
@@ -205,9 +198,21 @@
 }
 
 .body-more {
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(238,238,238,1) 100%);
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(238,238,238,1) 100%);
-  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(238,238,238,1) 100%);
+  background: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(238, 238, 238, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(238, 238, 238, 1) 100%
+  );
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(238, 238, 238, 1) 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#eeeeee',GradientType=0 );
   cursor: pointer;
   margin: -57px auto 0px;
@@ -219,7 +224,7 @@
 .body-more span {
   background-color: #fff;
   border-radius: 50%;
-  box-shadow: 1px 1px 5px rgba(0,0,0,.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   display: inline-block;
   height: 6px;
   margin-right: 2px;
@@ -229,7 +234,7 @@
 .card {
   background: #fff;
   border-radius: 2px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   margin-top: 15px;
   padding: 10px;
 }
@@ -252,11 +257,34 @@
   /* white-space: nowrap; */
 }
 
-.card-list::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
-	border-radius: 2px;
-	background-color: #F5F5F5;
+.card-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  background-color: #f5f5f5;
+}
+
+.card-list::-webkit-scrollbar {
+  height: 3px;
+  background-color: #f5f5f5;
+}
+
+.card-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+  background-color: #ddd;
+}
+
+.card-list li {
+  display: inline;
+  margin-left: 10px;
+}
+
+.card-list li:first-child {
+  margin-left: 0;
+}
+
+.rating {
+  margin: -18px 0 0 47px;
 }
 
 .card-list::-webkit-scrollbar

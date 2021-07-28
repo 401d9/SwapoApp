@@ -55,8 +55,8 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Feed({ username }) {
-  console.log('username_Fees', username);
   const [posts, setPosts] = useState([]);
+  const [newPost, setNewPost] = useState(0);
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
@@ -70,18 +70,24 @@ export default function Feed({ username }) {
         })
       );
     };
+    console.log("Posts", newPost);
     fetchPosts();
-  }, [username, user._id]);
-  console.log('Posts', posts);
+  }, [username, user._id, newPost]);
+  console.log("Posts", newPost);
   return (
-    <div>
-      <div >
-        {(!username || username === user.username) && <Share />}
+    <div >
+      <div>
+        {(!username || username === user.username) && (
+          <Share stateChanger={setNewPost} data={newPost} />
+        )}
         {posts.map((p) => (
-          <div className="postContainerTest" >
-
-            <Post key={p._id} post={p} />
-
+          <div className="postContainerTest">
+            <Post
+              key={p._id}
+              post={p}
+              stateChanger={setNewPost}
+              data={newPost}
+            />
           </div>
         ))}
       </div>

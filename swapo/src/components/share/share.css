@@ -1,5 +1,5 @@
- .share {
-  background-image: url('./form.jpg');
+.share {
+  background-image: url('form.jpg');
   background-size: cover;
 background-repeat: no-repeat;
 background-position: center;

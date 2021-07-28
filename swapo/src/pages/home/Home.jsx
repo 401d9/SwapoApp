@@ -2,8 +2,8 @@
 
 import Header from "../../components/header/Header";
 import Feed from "../../components/feed/Feed";
-import Footer from "../../components/footer/Footer"
-import "./home.css"
+import Footer from "../../components/footer/Footer";
+import "./home.css";
 export default function Home() {
   return (
     <>
@@ -17,7 +17,7 @@ export default function Home() {
           </div>
         </main>
         <footer>
-         <Footer/>
+          <Footer />
         </footer>
       </container>
     </>

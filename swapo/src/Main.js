@@ -25,7 +25,7 @@ function Main() {
         <Route path="/messenger">
           <Messenger />
         </Route>
-        <Route path="/profile">
+        <Route path="/profile/:username">
           <Profile />
         </Route>
         <Route path="/setting">
